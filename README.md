@@ -1,8 +1,11 @@
 # Personal Notes
 
-A structured repository for:
+A structured repository for personal notes:
 
-- DSMP Notes
+- Python
+- Numpy
+- Pandas
+- Seaborn
 - Statistics
 - Machine Learning
 - MLOps
