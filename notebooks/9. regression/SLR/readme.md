@@ -26,27 +26,21 @@
 | **How** | By finding the straight line that minimizes the sum of squared vertical distances between observed data points and the line itself. |
 
 ### 📐 Mathematical Foundation
-The population model:
-$$
-Y = \beta_0 + \beta_1 X + \varepsilon
-$$
-Where:
-- $\beta_0$ = Intercept (expected $Y$ when $X=0$)
-- $\beta_1$ = Slope (change in $Y$ per unit change in $X$)
-- $\varepsilon$ = Random error term, $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
+### The Population Model
+$$Y = \beta_0 + \beta_1 X + \varepsilon$$
 
-The Ordinary Least Squares (OLS) estimators:
-$$
-\hat{\beta}_1 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2} = \frac{\text{Cov}(X,Y)}{\text{Var}(X)}
-$$
-$$
-\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}
-$$
+**Where:**
+* $\beta_0$ = Intercept (expected $Y$ when $X=0$)
+* $\beta_1$ = Slope (change in $Y$ per unit change in $X$)
+* $\varepsilon$ = Random error term, $\varepsilon \sim N(0, \sigma^2)$
 
-The fitted line:
-$$
-\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X
-$$
+### The Ordinary Least Squares (OLS) Estimators
+$$\hat{\beta}_1 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2} = \frac{\text{Cov}(X,Y)}{\text{Var}(X)}$$
+
+$$\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}$$
+
+### The Fitted Line
+$$\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X$$
 
 ### 💡 Illustrative Example
 **Scenario:** Predicting house price based solely on square footage.
