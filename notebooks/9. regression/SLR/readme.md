@@ -79,14 +79,10 @@ flowchart LR
 
 ### 📐 Mathematical Foundation
 Population model:
-$$
-Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon
-$$
+$$ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon $$
 
 Matrix notation (compact & computationally efficient):
-$$
-\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}
-$$
+$$ \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon} $$
 Where:
 - $\mathbf{y} \in \mathbb{R}^{n \times 1}$: Response vector
 - $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$: Design matrix (first column = 1s for intercept)
@@ -94,20 +90,14 @@ Where:
 - $\boldsymbol{\varepsilon} \in \mathbb{R}^{n \times 1}$: Error vector
 
 Loss function (Mean Squared Error scaled by $1/2$ for derivative convenience):
-$$
-J(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|_2^2 = \frac{1}{2n} (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
-$$
+$$ J(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|_2^2 = \frac{1}{2n} (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top (\mathbf{y} - \mathbf{X}\boldsymbol{\beta}) $$
 
 OLS closed-form solution (Normal Equation):
-$$
-\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
-$$
+$$ \hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y} $$
 *Condition:* $\mathbf{X}^\top \mathbf{X}$ must be invertible (full column rank).
 
 Variance of coefficients:
-$$
-\text{Var}(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1}
-$$
+$$ \text{Var}(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1} $$
 
 ### 💡 Illustrative Example
 **Scenario:** Predicting monthly sales using TV, Radio, and Newspaper advertising budgets.
