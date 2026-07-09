@@ -78,26 +78,29 @@ flowchart LR
 | **How** | By solving a system of normal equations using matrix algebra or iterative optimization to minimize multivariate squared error. |
 
 ### 📐 Mathematical Foundation
-Population model:
-$$ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon $$
+### Population Model
+$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon$$
 
-Matrix notation (compact & computationally efficient):
-$$ \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon} $$
-Where:
-- $\mathbf{y} \in \mathbb{R}^{n \times 1}$: Response vector
-- $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$: Design matrix (first column = 1s for intercept)
-- $\boldsymbol{\beta} \in \mathbb{R}^{(p+1) \times 1}$: Coefficient vector
-- $\boldsymbol{\varepsilon} \in \mathbb{R}^{n \times 1}$: Error vector
+### Matrix Notation
+*(Compact & computationally efficient)*
+$$\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$$
 
-Loss function (Mean Squared Error scaled by $1/2$ for derivative convenience):
-$$ J(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|_2^2 = \frac{1}{2n} (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top (\mathbf{y} - \mathbf{X}\boldsymbol{\beta}) $$
+**Where:**
+* $\mathbf{y} \in \mathbb{R}^{n \times 1}$: Response vector
+* $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$: Design matrix (first column = 1s for intercept)
+* $\boldsymbol{\beta} \in \mathbb{R}^{(p+1) \times 1}$: Coefficient vector
+* $\boldsymbol{\varepsilon} \in \mathbb{R}^{n \times 1}$: Error vector
 
-OLS closed-form solution (Normal Equation):
-$$ \hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y} $$
+### Loss Function
+*Mean Squared Error scaled by $1/2$ for derivative convenience:*
+$$J(\boldsymbol{\beta}) = \frac{1}{2n} \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|_2^2 = \frac{1}{2n} (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})$$
+
+### OLS Closed-Form Solution (Normal Equation)
+$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}$$
 *Condition:* $\mathbf{X}^\top \mathbf{X}$ must be invertible (full column rank).
 
-Variance of coefficients:
-$$ \text{Var}(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1} $$
+### Variance of Coefficients
+$$\text{Var}(\hat{\boldsymbol{\beta}}) = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1}$$
 
 ### 💡 Illustrative Example
 **Scenario:** Predicting monthly sales using TV, Radio, and Newspaper advertising budgets.
@@ -145,26 +148,22 @@ graph TD
 | **How** | Compute gradient of loss w.r.t parameters, take a step opposite to gradient direction scaled by learning rate, repeat until convergence. |
 
 ### 📐 Mathematical Foundation
-Gradient of MSE loss:
-$$
-\nabla J(\boldsymbol{\beta}) = \frac{1}{n} \mathbf{X}^\top (\mathbf{X}\boldsymbol{\beta} - \mathbf{y})
-$$
+### Gradient of MSE Loss
+$$\nabla J(\boldsymbol{\beta}) = \frac{1}{n} \mathbf{X}^\top (\mathbf{X}\boldsymbol{\beta} - \mathbf{y})$$
 
-Update rule (Gradient Descent):
-$$
-\boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} - \alpha \nabla J(\boldsymbol{\beta}^{(t)})
-$$
-Where $\alpha > 0$ is the learning rate.
+### Update Rule (Gradient Descent)
+$$\boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} - \alpha \nabla J(\boldsymbol{\beta}^{(t)})$$
 
-Variants:
-- **Batch GD**: Uses full dataset per step (stable, slow)
-- **Stochastic GD (SGD)**: Uses one random sample per step (noisy, fast)
-- **Mini-batch GD**: Uses subset of size $b$ (balances speed & stability)
+**Where:**
+* $\alpha > 0$ is the learning rate.
 
-Convergence criteria:
-$$
-\|\boldsymbol{\beta}^{(t+1)} - \boldsymbol{\beta}^{(t)}\| < \epsilon \quad \text{or} \quad |J^{(t+1)} - J^{(t)}| < \epsilon
-$$
+### Variants of Gradient Descent
+* **Batch GD:** Uses the full dataset per step (stable, slow)
+* **Stochastic GD (SGD):** Uses one random sample per step (noisy, fast)
+* **Mini-batch GD:** Uses a subset of size $b$ (balances speed & stability)
+
+### Convergence Criteria
+$$\|\boldsymbol{\beta}^{(t+1)} - \boldsymbol{\beta}^{(t)}\| < \epsilon \quad \text{or} \quad |J^{(t+1)} - J^{(t)}| < \epsilon$$
 
 ### 💡 Illustrative Example
 **Scenario:** Training a linear model on 1 million customer records.
@@ -223,26 +222,26 @@ Linear regression relies on the **Gauss-Markov Theorem**, which states that if c
 
 ### 4.2 Normality of Residuals
 *   **What:** The error terms $\epsilon_i$ are normally distributed with mean 0 and constant variance.
-    $$ \epsilon \sim \mathcal{N}(0, \sigma^2) $$
+    $$\epsilon \sim \mathcal{N}(0, \sigma^2)$$
 *   **Why:** Required for valid hypothesis testing (t-tests, F-tests) and constructing confidence intervals.
 *   **Violation Consequence:** P-values become unreliable; confidence intervals may be too narrow or wide.
 *   **How to Check:** 
     *   **Histogram / Q-Q Plot:** Points should fall on the diagonal line.
     *   **Omnibus Test:** Tests skewness ($S$) and kurtosis ($K$).
-        $$ K^2 = n \left( \frac{S^2}{6} + \frac{(K-3)^2}{24} \right) $$
+        $$K^2 = n \left( \frac{S^2}{6} + \frac{(K-3)^2}{24} \right)$$
         Where $K^2 \sim \chi^2_2$. If $p$-value $< 0.05$, normality is rejected.
 
 ---
 
 ### 4.3 Homoscedasticity (Constant Variance)
 *   **What:** The variance of the error terms is constant across all levels of $X$.
-    $$ Var(\epsilon_i) = \sigma^2 \quad \forall i $$
+    $$Var(\epsilon_i) = \sigma^2 \quad \forall i$$
 *   **Why:** If variance changes (Heteroscedasticity), OLS is no longer the "Best" estimator (inefficient).
 *   **Violation Consequence:** Standard errors are biased, leading to incorrect t-statistics and p-values.
 *   **How to Check:** 
     *   **Residual vs. Fitted Plot:** Look for a "funnel" shape.
     *   **Breusch-Pagan Test:** Regress squared residuals on $X$.
-        $$ LM = n \cdot R^2_{aux} \sim \chi^2_k $$
+        $$LM = n \cdot R^2_{aux} \sim \chi^2_k$$
         If $LM$ is large ($p < 0.05$), heteroscedasticity is present.
 *   **Remedy:** Weighted Least Squares (WLS), Robust Standard Errors (Huber-White), or Log transformation of $Y$.
 
@@ -250,12 +249,12 @@ Linear regression relies on the **Gauss-Markov Theorem**, which states that if c
 
 ### 4.4 No Autocorrelation (Independence of Errors)
 *   **What:** Error terms are uncorrelated with each other.
-    $$ Cov(\epsilon_i, \epsilon_j) = 0 \quad \text{for } i \neq j $$
+    $$Cov(\epsilon_i, \epsilon_j) = 0 \quad \text{for } i \neq j$$
 *   **Why:** Crucial for time-series or spatial data. Autocorrelation means the model is missing a temporal pattern.
 *   **Violation Consequence:** Standard errors are underestimated, inflating t-statistics (false positives).
 *   **How to Check:**
     *   **Durbin-Watson Test:**
-        $$ d = \frac{\sum_{t=2}^{T} (e_t - e_{t-1})^2}{\sum_{t=1}^{T} e_t^2} $$
+        $$d = \frac{\sum_{t=2}^{T} (e_t - e_{t-1})^2}{\sum_{t=1}^{T} e_t^2}$$
         *   $d \approx 2$: No autocorrelation.
         *   $d < 2$: Positive autocorrelation.
         *   $d > 2$: Negative autocorrelation.
@@ -266,29 +265,19 @@ Linear regression relies on the **Gauss-Markov Theorem**, which states that if c
 Let $\varepsilon_i = Y_i - \hat{Y}_i$. The classical Gauss-Markov assumptions:
 
 1. **Linearity & Correct Specification**
-   $$
-   E[Y|X] = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \quad \Rightarrow \quad E[\varepsilon|X] = 0
-   $$
+   $$E[Y|X] = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \quad \Rightarrow \quad E[\varepsilon|X] = 0$$
 
 2. **Strict Exogeneity / Independence**
-   $$
-   \text{Cov}(\varepsilon_i, \varepsilon_j | X) = 0 \quad \forall i \neq j
-   $$
+   $$\text{Cov}(\varepsilon_i, \varepsilon_j | X) = 0 \quad \forall i \neq j$$
 
 3. **Homoscedasticity (Constant Variance)**
-   $$
-   \text{Var}(\varepsilon_i | X) = \sigma^2 \quad \forall i
-   $$
+   $$\text{Var}(\varepsilon_i | X) = \sigma^2 \quad \forall i$$
 
 4. **No Perfect Multicollinearity**
-   $$
-   \text{rank}(\mathbf{X}) = p + 1 \quad \Rightarrow \quad \mathbf{X}^\top \mathbf{X} \text{ is invertible}
-   $$
+   $$\text{rank}(\mathbf{X}) = p + 1 \quad \Rightarrow \quad \mathbf{X}^\top \mathbf{X} \text{ is invertible}$$
 
 5. **Normality of Errors** (required for small-sample inference)
-   $$
-   \varepsilon | X \sim \mathcal{N}(0, \sigma^2 \mathbf{I})
-   $$
+   $$\varepsilon | X \sim \mathcal{N}(0, \sigma^2 \mathbf{I})$$
 
 ### 💡 Illustrative Example
 **Scenario:** Modeling annual income using years of education.
@@ -379,9 +368,9 @@ Where $\lambda$ represents the eigenvalues of $\mathbf{X}^T \mathbf{X}$.
 ```mermaid
 graph LR
     subgraph "Detection Phase"
-        A[Correlation Matrix] --> B[|r| > 0.8?]
-        C[VIF Calculation] --> D[VIF > 5 or 10?]
-        E[Condition Number] --> F[κ > 30?]
+        A[Correlation Matrix] --> B{"r| > 0.8?"}
+        C[VIF Calculation] --> D{"VIF > 5 or 10?"}
+        E[Condition Number] --> F{"κ > 30?"}
     end
     
     subgraph "Resolution Phase"
