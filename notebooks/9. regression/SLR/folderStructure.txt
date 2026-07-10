@@ -1,0 +1,25 @@
+9. regression
+
+│
+├── 01 Simple Linear Regression
+├── 02 Multiple Linear Regression
+├── 03 Polynomial Regression
+├── 04 Assumptions of Linear Regression
+├── 05 Normal Equation
+├── 06 Gradient Descent
+├── 07 Batch Gradient Descent
+├── 08 Stochastic Gradient Descent
+├── 09 Mini Batch Gradient Descent
+├── 10 Bias Variance Tradeoff
+├── 11 Regularization
+│      ├── Ridge Regression (L2)
+│      ├── Lasso Regression (L1)
+│      ├── Elastic Net
+│      ├── Choosing λ
+│      ├── Effect on Coefficients
+│      ├── Geometry of L1 vs L2
+│      ├── Practical Examples
+├── 12 KNN
+│
+├── 13 Evaluation Metrics
+├── 14 Robust Regression
