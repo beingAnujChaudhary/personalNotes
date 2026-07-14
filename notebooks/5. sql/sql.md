@@ -3,60 +3,6 @@
 
 ## 🔍 Verify SQL Server is Working
 
-### Check Service Status
-
-```bash
-sudo systemctl status mssql-server --no-pager
-```
-
-### Test Connection
-
-```bash
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT @@VERSION"
-```
-
-### List Databases
-
-```bash
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT name FROM sys.databases"
-```
-
-### Create a Test Database
-
-```bash
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "CREATE DATABASE TestDB"
-```
-
----
-
-## 📝 Important Note About SQL Server Version
-
-You're running **SQL Server 2022**, not 2025. SQL Server 2025 is not yet officially released. The repository you added was for SQL Server 2022.
-
-### If You Want SQL Server 2025 (When Available)
-
-When Microsoft releases SQL Server 2025, you can upgrade with:
-
-```bash
-# Remove current installation
-sudo systemctl stop mssql-server
-sudo apt-get remove --purge -y mssql-server
-
-# Add SQL Server 2025 repository (when available)
-curl -fsSL https://packages.microsoft.com/config/ubuntu/24.04/mssql-server-2025.list | sudo tee /etc/apt/sources.list.d/mssql-server-2025.list
-
-# Install
-sudo apt-get update
-sudo apt-get install -y mssql-server
-
-# Configure
-sudo /opt/mssql/bin/mssql-conf setup
-```
-
----
-
-## 📋 SQL Server 2022 Management Commands
-
 ### Service Management
 
 ```bash
@@ -77,16 +23,16 @@ sudo systemctl restart mssql-server
 
 ```bash
 # Connect interactively
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C
+sqlcmd -S localhost -U SA -P '' -C
 
 # Run a query
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT @@VERSION"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT @@VERSION"
 
 # Create a database
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "CREATE DATABASE MyDB"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "CREATE DATABASE MyDB"
 
 # List databases
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT name FROM sys.databases"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT name FROM sys.databases"
 ```
 
 ### View Logs
@@ -117,16 +63,16 @@ sudo systemctl stop mssql-server
 sudo systemctl restart mssql-server
 
 # ── Connect ──
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C
+sqlcmd -S localhost -U SA -P 'yourpassword' -C
 
-# ── Query ──
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT @@VERSION"
+# ── yourpassword ──
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT @@VERSION"
 
 # ── Create DB ──
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "CREATE DATABASE MyDB"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "CREATE DATABASE MyDB"
 
 # ── List DBs ──
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT name FROM sys.databases"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT name FROM sys.databases"
 
 # ── Logs ──
 sudo tail -f /var/opt/mssql/log/errorlog
@@ -271,7 +217,7 @@ FROM Employees e
 LEFT JOIN Departments d ON e.DepartmentId = d.Id;
 GO
 
--- Subquery
+-- Subyourpassword
 SELECT Name, Salary
 FROM Employees
 WHERE Salary > (SELECT AVG(Salary) FROM Employees);
@@ -654,7 +600,7 @@ conn = pyodbc.connect(
     'DRIVER={ODBC Driver 18 for SQL Server};'
     'SERVER=localhost,1433;'
     'UID=SA;'
-    'PWD=@Nuj2685SQL;'
+    'PWD=yourpassword;'
     'TrustServerCertificate=yes;'
 )
 
@@ -672,7 +618,7 @@ const sql = require('mssql');
 
 const config = {
     user: 'SA',
-    password: '@Nuj2685SQL',
+    password: 'yourpassword',
     server: 'localhost',
     port: 1433,
     options: {
@@ -697,16 +643,16 @@ getVersion();
 
 ```bash
 # Basic connection
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C
+sqlcmd -S localhost -U SA -P 'yourpassword' -C
 
 # Run a query
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT @@VERSION"
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT @@VERSION"
 
 # Run a query with output to file
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -Q "SELECT * FROM Employees" -o output.txt
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -Q "SELECT * FROM Employees" -o output.txt
 
 # Execute a SQL script file
-sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C -i /path/to/script.sql
+sqlcmd -S localhost -U SA -P 'yourpassword' -C -i /path/to/script.sql
 ```
 
 ---
