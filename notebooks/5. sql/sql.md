@@ -1,3 +1,42 @@
+---
+## 🚀 Quick Commands for Daily Use
+
+### Check SQL Server Status
+
+```bash
+sudo systemctl status mssql-server --no-pager
+```
+
+### Connect to SQL Server
+
+```bash
+sqlcmd -S localhost -U SA -P '@Nuj2685SQL' -C
+```
+
+### Check Google Drive Backup Files
+
+```bash
+ls -la /mnt/gdrive/SQLServer_Backups/
+```
+
+### Run a Manual Backup
+
+```bash
+/home/beinganujubuntu/backup-to-gdrive.sh
+```
+
+### View Backup Log
+
+```bash
+cat /home/beinganujubuntu/backup.log
+```
+
+### Check Google Drive Mount
+
+```bash
+mount | grep gdrive
+```
+
 
 ---
 
