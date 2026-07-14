@@ -19,6 +19,7 @@
             --success-text: #155724;
             --git-orange: #f14e32;
             --git-dark: #c9510c;
+            --exercise-green: #28a745;
         }
 
         body {
@@ -77,12 +78,6 @@
             color: #444;
             margin-top: 25px;
             font-size: 1.2rem;
-        }
-
-        h4 {
-            color: #555;
-            margin-top: 20px;
-            font-size: 1.05rem;
         }
 
         p {
@@ -170,6 +165,24 @@
             background-color: var(--git-orange);
         }
 
+        .exercise-table th {
+            background-color: var(--exercise-green);
+        }
+
+        .exercise-table td:nth-child(1) {
+            font-weight: bold;
+            text-align: center;
+            width: 50px;
+            color: #555;
+        }
+
+        .exercise-table td:nth-child(3) {
+            font-family: 'Consolas', monospace;
+            color: var(--code-text);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
         .badge {
             display: inline-block;
             padding: 2px 10px;
@@ -181,20 +194,8 @@
             margin-right: 5px;
         }
 
-        .badge-git {
-            background-color: var(--git-orange);
-            color: white;
-        }
-
-        .badge-essential {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .badge-advanced {
-            background-color: #6c757d;
-            color: white;
-        }
+        .badge-git { background-color: var(--git-orange); color: white; }
+        .badge-essential { background-color: #28a745; color: white; }
 
         .quiz-section {
             background-color: #fafafa;
@@ -211,28 +212,16 @@
             padding-bottom: 8px;
         }
 
-        .question {
-            margin-bottom: 25px;
-        }
+        .question { margin-bottom: 25px; }
+        .question p { font-weight: 600; margin-bottom: 10px; }
 
-        .question p {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        ul.options {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        ul.options { list-style-type: none; padding: 0; margin: 0; }
         ul.options li {
             background-color: #fff;
             margin: 8px 0;
             padding: 12px 15px;
             border-radius: 4px;
             border: 1px solid #ddd;
-            transition: all 0.2s ease;
         }
 
         .correct {
@@ -241,11 +230,7 @@
             color: var(--success-text);
             font-weight: bold;
         }
-
-        .correct::before {
-            content: "✔️ ";
-            margin-right: 5px;
-        }
+        .correct::before { content: "✔️ "; margin-right: 5px; }
 
         .note-box {
             background-color: #e7f3fe;
@@ -254,10 +239,7 @@
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
         }
-
-        .note-box strong {
-            color: #0d47a1;
-        }
+        .note-box strong { color: #0d47a1; }
 
         .warning-box {
             background-color: #fff3cd;
@@ -266,65 +248,31 @@
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
         }
+        .warning-box strong { color: #856404; }
 
-        .warning-box strong {
-            color: #856404;
-        }
-
-        .command-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 12px;
-            margin: 15px 0;
-        }
-
-        .command-card {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
+        .scrollable-table {
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
             border-radius: 6px;
-            padding: 12px 16px;
-            transition: all 0.2s;
+            margin-top: 15px;
         }
-
-        .command-card:hover {
-            background: #e9ecef;
-            border-color: var(--primary);
+        
+        .scrollable-table table {
+            margin: 0;
+            box-shadow: none;
         }
-
-        .command-card code {
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .command-card .desc {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .command-card .tag-small {
-            font-size: 0.65rem;
-            background: #dee2e6;
-            padding: 1px 8px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-top: 4px;
+        
+        .scrollable-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            section {
-                padding: 15px;
-            }
-            th, td {
-                padding: 8px 10px;
-                font-size: 0.85rem;
-            }
-            .command-grid {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 10px; }
+            section { padding: 15px; }
+            th, td { padding: 8px 10px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -337,1066 +285,332 @@
 
 <div class="container">
 
-    <!-- ============================================================ -->
-    <!-- SECTION 1: VS CODE SHORTCUTS                                  -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 1: VS CODE SHORTCUTS -->
     <section>
         <h2>1. Maximizing Productivity in VS Code</h2>
         <p>While basic OS shortcuts like <kbd>Ctrl</kbd> + <kbd>S</kbd> (Save), <kbd>Ctrl</kbd> + <kbd>C</kbd> (Copy), and <kbd>Ctrl</kbd> + <kbd>V</kbd> (Paste) work universally, mastering application-specific shortcuts is key to becoming a VS Code power user.</p>
-
         <div class="note-box">
             <strong>✨ Multi-line Editing Magic:</strong> You can place multiple cursors using <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd>/<kbd>↓</kbd> (Win/Lin) or <kbd>Option</kbd> + <kbd>Cmd</kbd> + <kbd>↑</kbd>/<kbd>↓</kbd> (Mac). Alternatively, hold <kbd>Alt</kbd> (Win/Lin) or <kbd>Option</kbd> (Mac) and click anywhere. Typing or deleting will apply to <em>all</em> cursor locations simultaneously!
         </div>
-
         <h3>📋 VS Code Shortcut Cheat Sheet</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>Action</th>
-                    <th>Windows / Linux</th>
-                    <th>macOS</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Action</th><th>Windows / Linux</th><th>macOS</th></tr></thead>
             <tbody>
-                <tr>
-                    <td>Format Document</td>
-                    <td><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd></td>
-                    <td><kbd>Shift</kbd> + <kbd>Option</kbd> + <kbd>F</kbd></td>
-                </tr>
-                <tr>
-                    <td>Search Across Workspace</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></td>
-                </tr>
-                <tr>
-                    <td>Find &amp; Replace (Workspace)</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></td>
-                </tr>
-                <tr>
-                    <td>Delete Entire Line</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td>
-                </tr>
-                <tr>
-                    <td>Toggle Sidebar</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>B</kbd></td>
-                </tr>
-                <tr>
-                    <td>Zoom In / Out</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>-</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>+</kbd> / <kbd>-</kbd></td>
-                </tr>
-                <tr>
-                    <td>Open Command Palette</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td>
-                    <td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td>
-                </tr>
+                <tr><td>Format Document</td><td><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd></td><td><kbd>Shift</kbd> + <kbd>Option</kbd> + <kbd>F</kbd></td></tr>
+                <tr><td>Search Across Workspace</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></td><td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></td></tr>
+                <tr><td>Find & Replace (Workspace)</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></td><td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></td></tr>
+                <tr><td>Delete Entire Line</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td><td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></td></tr>
+                <tr><td>Toggle Sidebar</td><td><kbd>Ctrl</kbd> + <kbd>B</kbd></td><td><kbd>Cmd</kbd> + <kbd>B</kbd></td></tr>
+                <tr><td>Zoom In / Out</td><td><kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>-</kbd></td><td><kbd>Cmd</kbd> + <kbd>+</kbd> / <kbd>-</kbd></td></tr>
+                <tr><td>Open Command Palette</td><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td><td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td></tr>
             </tbody>
         </table>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: VS Code</h3>
-            <div class="question">
-                <p>1. Which Windows keyboard shortcut is used to run the configured formatter on the currently opened file in VS Code?</p>
-                <ul class="options">
-                    <li>Ctrl + F</li>
-                    <li class="correct">Shift + Alt + F</li>
-                    <li>Ctrl + Shift + F</li>
-                    <li>Alt + F4</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. What function does the keyboard shortcut Ctrl + Shift + K (Windows/Linux) or Cmd + Shift + K (macOS) perform in VS Code?</p>
-                <ul class="options">
-                    <li>Opens the command palette.</li>
-                    <li>Increases the editor's text size.</li>
-                    <li class="correct">Deletes the current line.</li>
-                    <li>Hides the sidebar.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. Which Windows keyboard shortcut opens the command palette in VS Code?</p>
-                <ul class="options">
-                    <li>Ctrl + P</li>
-                    <li class="correct">Ctrl + Shift + P</li>
-                    <li>Alt + F4</li>
-                    <li>Ctrl + Space</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 2: TERMINAL VS CLI VS SHELL                           -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 2: TERMINAL VS CLI VS SHELL -->
     <section>
         <h2>2. Demystifying the Terminal, Shell, and CLI</h2>
         <p>Though often used interchangeably, these three terms represent distinct layers of your system's text-based interface.</p>
-
         <table>
-            <thead>
-                <tr>
-                    <th>Concept</th>
-                    <th>Definition</th>
-                    <th>Analogy</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Concept</th><th>Definition</th><th>Analogy</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><strong>Command Line (CLI)</strong></td>
-                    <td>A basic text input interface where users type and execute commands.</td>
-                    <td>The language you are speaking.</td>
-                </tr>
-                <tr>
-                    <td><strong>Terminal</strong></td>
-                    <td>The application (or emulator) that provides the window and UI to interact with the CLI and perform system-level operations.</td>
-                    <td>The room where the conversation happens.</td>
-                </tr>
-                <tr>
-                    <td><strong>Shell</strong></td>
-                    <td>The underlying software program that wraps the CLI, interprets your typed inputs, and returns the output.</td>
-                    <td>The translator processing your words.</td>
-                </tr>
+                <tr><td><strong>Command Line (CLI)</strong></td><td>A basic text input interface where users type and execute commands.</td><td>The language you are speaking.</td></tr>
+                <tr><td><strong>Terminal</strong></td><td>The application (or emulator) that provides the window and UI to interact with the CLI.</td><td>The room where the conversation happens.</td></tr>
+                <tr><td><strong>Shell</strong></td><td>The underlying software program that wraps the CLI, interprets inputs, and returns output.</td><td>The translator processing your words.</td></tr>
             </tbody>
         </table>
-
-        <h3>OS-Specific Terminal Environments</h3>
-        <ul>
-            <li><strong>Windows:</strong> Comes with <code>Command Prompt</code> and <code>PowerShell</code>. The modern <code>Windows Terminal</code> app unifies these alongside WSL (Windows Subsystem for Linux).</li>
-            <li><strong>macOS:</strong> Uses the default <code>Terminal</code> app (running the <code>zsh</code> shell by default). Third-party emulators like <code>iTerm2</code> or <code>Ghostty</code> are popular.</li>
-            <li><strong>Linux:</strong> Highly dependent on the distro/desktop environment. Examples include <code>kitty</code>, <code>gnome-terminal</code>, or launching via managers like <code>wofi</code>.</li>
-        </ul>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: Terminals &amp; Shells</h3>
-            <div class="question">
-                <p>1. What is a terminal?</p>
-                <ul class="options">
-                    <li>A basic text input interface for entering commands.</li>
-                    <li class="correct">A special application that offers a command line interface for system-level commands.</li>
-                    <li>Software that removes all user inputs in the command line.</li>
-                    <li>The Enter key used to submit commands.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. Which of the following best describes a shell?</p>
-                <ul class="options">
-                    <li>A hardware component that displays text input.</li>
-                    <li>A special application that allows system-level commands.</li>
-                    <li class="correct">Software that wraps the command line and interprets inputs as commands.</li>
-                    <li>A third-party terminal emulator.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. On Windows, what advantage does Microsoft Terminal offer over traditional options?</p>
-                <ul class="options">
-                    <li>It's the only way to access the command line on Windows.</li>
-                    <li class="correct">It allows access to both Powershell and Command Prompt shells from the same application.</li>
-                    <li>It's the default terminal on all Windows systems.</li>
-                    <li>It replaces the need for a shell entirely.</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 3: CLI SHORTCUTS                                      -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 3: CLI SHORTCUTS -->
     <section>
         <h2>3. Command Line Shortcuts for Speed</h2>
-        <p>Mastering terminal shortcuts streamlines workflows. Note that *nix (Linux/macOS) and Windows (PowerShell) have some differences.</p>
-
         <table>
-            <thead>
-                <tr>
-                    <th>Shortcut / Action</th>
-                    <th>*nix (Bash/Zsh)</th>
-                    <th>Windows (PowerShell)</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Shortcut / Action</th><th>*nix (Bash/Zsh)</th><th>Windows (PowerShell)</th></tr></thead>
             <tbody>
-                <tr>
-                    <td>Cycle History</td>
-                    <td><kbd>↑</kbd> / <kbd>↓</kbd> Arrows</td>
-                    <td><kbd>↑</kbd> / <kbd>↓</kbd> Arrows</td>
-                </tr>
-                <tr>
-                    <td>Auto-complete</td>
-                    <td><kbd>Tab</kbd></td>
-                    <td><kbd>Tab</kbd></td>
-                </tr>
-                <tr>
-                    <td>Clear Screen</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>L</kbd></td>
-                    <td>Type <code>cls</code></td>
-                </tr>
-                <tr>
-                    <td>Interrupt / Kill Process</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
-                    <td><kbd>Ctrl</kbd> + <kbd>C</kbd> (if no text selected)</td>
-                </tr>
-                <tr>
-                    <td>Suspend to Background</td>
-                    <td><kbd>Ctrl</kbd> + <kbd>Z</kbd> (use <code>fg</code> to resume)</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Repeat Last Command</td>
-                    <td>Type <code>!!</code> and hit Enter</td>
-                    <td>N/A</td>
-                </tr>
+                <tr><td>Cycle History</td><td><kbd>↑</kbd> / <kbd>↓</kbd> Arrows</td><td><kbd>↑</kbd> / <kbd>↓</kbd> Arrows</td></tr>
+                <tr><td>Auto-complete</td><td><kbd>Tab</kbd></td><td><kbd>Tab</kbd></td></tr>
+                <tr><td>Clear Screen</td><td><kbd>Ctrl</kbd> + <kbd>L</kbd></td><td>Type <code>cls</code></td></tr>
+                <tr><td>Interrupt / Kill Process</td><td><kbd>Ctrl</kbd> + <kbd>C</kbd></td><td><kbd>Ctrl</kbd> + <kbd>C</kbd></td></tr>
+                <tr><td>Suspend to Background</td><td><kbd>Ctrl</kbd> + <kbd>Z</kbd> (use <code>fg</code>)</td><td>N/A</td></tr>
+                <tr><td>Repeat Last Command</td><td>Type <code>!!</code> and hit Enter</td><td>N/A</td></tr>
             </tbody>
         </table>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: CLI Shortcuts</h3>
-            <div class="question">
-                <p>1. Which key combination is used to clear the screen in *nix based terminals?</p>
-                <ul class="options">
-                    <li>Control + C</li>
-                    <li class="correct">Control + L</li>
-                    <li>Control + Z</li>
-                    <li>The tab key</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. What happens when you press Control + Z in a *nix based terminal?</p>
-                <ul class="options">
-                    <li>It terminates the current process.</li>
-                    <li class="correct">It places the current process in the background.</li>
-                    <li>It clears the screen.</li>
-                    <li>It cycles through command history.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. Which of the following can be used to quickly run the last executed command in a *nix based terminal?</p>
-                <ul class="options">
-                    <li>Control + L</li>
-                    <li>The tab key</li>
-                    <li class="correct">!!</li>
-                    <li>Control + C</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 4: BASH COMMANDS (Original)                          -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 4: BASH COMMANDS -->
     <section>
-        <h2>4. Bash Essentials &amp; Core Commands</h2>
-        <p><strong>Bash</strong> (Bourne Again SHell) is the most common shell in Unix-like environments. Below are the foundational commands you will use daily.</p>
-
+        <h2>4. Bash Essentials & Core Commands</h2>
         <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Command</th><th>Description</th><th>Example Usage</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><code>pwd</code></td>
-                    <td><strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory. Shows your current location.</td>
-                    <td><code>pwd</code></td>
-                </tr>
-                <tr>
-                    <td><code>cd</code></td>
-                    <td><strong>C</strong>hange <strong>D</strong>irectory. Use <code>..</code> to go up one level.</td>
-                    <td><code>cd /var/www</code> or <code>cd ..</code></td>
-                </tr>
-                <tr>
-                    <td><code>ls</code></td>
-                    <td><strong>L</strong>i<strong>s</strong>t directory contents. Use <code>-a</code> for hidden files, <code>-l</code> for details.</td>
-                    <td><code>ls -la</code></td>
-                </tr>
-                <tr>
-                    <td><code>mkdir</code></td>
-                    <td><strong>M</strong>a<strong>k</strong>e <strong>Dir</strong>ectory (folder).</td>
-                    <td><code>mkdir my-project</code></td>
-                </tr>
-                <tr>
-                    <td><code>touch</code></td>
-                    <td>Creates an empty file.</td>
-                    <td><code>touch index.html</code></td>
-                </tr>
-                <tr>
-                    <td><code>mv</code></td>
-                    <td><strong>M</strong>o<strong>v</strong>e or rename a file/folder.</td>
-                    <td><code>mv old.txt new.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>cp</code></td>
-                    <td><strong>C</strong>o<strong>p</strong>y. Use <code>-r</code> to copy directories recursively.</td>
-                    <td><code>cp -r /src /dest</code></td>
-                </tr>
-                <tr>
-                    <td><code>rm</code></td>
-                    <td><strong>R</strong>e<strong>m</strong>ove (delete). Use <code>-r</code> for folders, <code>-f</code> to force.</td>
-                    <td><code>rm -rf node_modules</code></td>
-                </tr>
-                <tr>
-                    <td><code>echo</code></td>
-                    <td>Prints text. Use <code>&gt;</code> to overwrite a file, <code>&gt;&gt;</code> to append.</td>
-                    <td><code>echo "Hello" &gt;&gt; log.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>cat</code></td>
-                    <td>Displays the entire content of a file at once.</td>
-                    <td><code>cat file.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>less</code></td>
-                    <td>Views file content one page at a time with navigation (scroll, search).</td>
-                    <td><code>less large-file.log</code></td>
-                </tr>
-                <tr>
-                    <td><code>man</code></td>
-                    <td>Opens the <strong>Man</strong>ual (help page) for any command.</td>
-                    <td><code>man ls</code></td>
-                </tr>
+                <tr><td><code>pwd</code></td><td>Print Working Directory.</td><td><code>pwd</code></td></tr>
+                <tr><td><code>cd</code></td><td>Change Directory.</td><td><code>cd /var/www</code></td></tr>
+                <tr><td><code>ls</code></td><td>List directory contents.</td><td><code>ls -la</code></td></tr>
+                <tr><td><code>mkdir</code></td><td>Make Directory.</td><td><code>mkdir my-project</code></td></tr>
+                <tr><td><code>touch</code></td><td>Creates an empty file.</td><td><code>touch index.html</code></td></tr>
+                <tr><td><code>mv</code></td><td>Move or rename.</td><td><code>mv old.txt new.txt</code></td></tr>
+                <tr><td><code>cp</code></td><td>Copy.</td><td><code>cp -r /src /dest</code></td></tr>
+                <tr><td><code>rm</code></td><td>Remove (delete).</td><td><code>rm -rf node_modules</code></td></tr>
+                <tr><td><code>echo</code></td><td>Prints text / writes to file.</td><td><code>echo "Hi" &gt;&gt; log.txt</code></td></tr>
+                <tr><td><code>man</code></td><td>Opens the Manual.</td><td><code>man ls</code></td></tr>
             </tbody>
         </table>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: Bash Commands</h3>
-            <div class="question">
-                <p>1. What does the pwd command do in Bash?</p>
-                <ul class="options">
-                    <li>Changes directories.</li>
-                    <li class="correct">Prints the current working directory.</li>
-                    <li>Creates a new file.</li>
-                    <li>Lists directory contents.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. Which command would you use to create a new file called notes.txt?</p>
-                <ul class="options">
-                    <li>mkdir notes.txt</li>
-                    <li>cd notes.txt</li>
-                    <li class="correct">touch notes.txt</li>
-                    <li>ls notes.txt</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. If you wanted to rename a file from oldname.txt to newname.txt, which command would you use?</p>
-                <ul class="options">
-                    <li>rm oldname.txt newname.txt</li>
-                    <li class="correct">mv oldname.txt newname.txt</li>
-                    <li>touch newname.txt</li>
-                    <li>cd oldname.txt newname.txt</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 5: FLAGS & OPTIONS                                    -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 5: FLAGS & OPTIONS -->
     <section>
         <h2>5. Mastering Command Options and Flags</h2>
-        <p>Options (or flags) are special arguments that modify how a command behaves. They generally come in two syntax forms:</p>
-
         <table>
-            <thead>
-                <tr>
-                    <th>Syntax Type</th>
-                    <th>Format</th>
-                    <th>Example</th>
-                    <th>Key Feature</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Syntax Type</th><th>Format</th><th>Example</th><th>Key Feature</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><strong>Long Form</strong></td>
-                    <td>Two hyphens (<code>--</code>) followed by a full word.</td>
-                    <td><code>ls --help</code><br><code>ls --width=50</code></td>
-                    <td>Highly readable. Values are typically attached with an equals sign (<code>=</code>).</td>
-                </tr>
-                <tr>
-                    <td><strong>Short Form</strong></td>
-                    <td>One hyphen (<code>-</code>) followed by a single letter.</td>
-                    <td><code>ls -a</code><br><code>ls -w 50</code></td>
-                    <td>Can be <strong>chained</strong> together (e.g., <code>ls -ahs</code>). Values are separated by a space.</td>
-                </tr>
+                <tr><td><strong>Long Form</strong></td><td>Two hyphens (<code>--</code>)</td><td><code>ls --width=50</code></td><td>Readable. Values use <code>=</code>.</td></tr>
+                <tr><td><strong>Short Form</strong></td><td>One hyphen (<code>-</code>)</td><td><code>ls -w 50</code></td><td>Chainable (e.g., <code>ls -ahs</code>).</td></tr>
             </tbody>
         </table>
-
-        <div class="note-box">
-            <strong>💡 Pro-Tip:</strong> If you ever forget the available flags or their required syntax for a specific tool, simply run the command with <code>--help</code> or check the manual via <code>man &lt;command&gt;</code>.
-        </div>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: Flags &amp; Options</h3>
-            <div class="question">
-                <p>1. What is the difference between "long form" and "short form" syntax for command options?</p>
-                <ul class="options">
-                    <li>Long form uses a single hyphen while short form uses two hyphens.</li>
-                    <li class="correct">Long form uses two hyphens while short form uses a single hyphen.</li>
-                    <li>Long form is only used for version information.</li>
-                    <li>There is no difference between the two forms.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. What is the advantage of using short form options like -ahs?</p>
-                <ul class="options">
-                    <li>They require less memory to process.</li>
-                    <li>They are easier to remember.</li>
-                    <li class="correct">Multiple options can be chained together.</li>
-                    <li>They always work better than long form options.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. When using a long-form option that requires a value, what syntax is typically used?</p>
-                <ul class="options">
-                    <li>--option value</li>
-                    <li class="correct">--option=value</li>
-                    <li>-o value</li>
-                    <li>-o=value</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 6: ESSENTIAL COMMANDS (NEW)                           -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 6: ESSENTIAL COMMANDS -->
     <section>
         <h2>6. 🚀 Essential Developer Commands <span class="badge badge-essential">Must-Know</span></h2>
-        <p>Beyond the basics, these commands are indispensable for developers working with text, processes, permissions, and system management.</p>
-
-        <h3>📄 File &amp; Text Processing</h3>
+        <h3>📄 File & Text Processing</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Command</th><th>Description</th><th>Example Usage</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><code>head</code></td>
-                    <td>Shows the first N lines of a file (default: 10).</td>
-                    <td><code>head -n 20 log.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>tail</code></td>
-                    <td>Shows the last N lines of a file. Use <code>-f</code> to follow in real-time.</td>
-                    <td><code>tail -f app.log</code></td>
-                </tr>
-                <tr>
-                    <td><code>grep</code></td>
-                    <td>Searches for patterns within files. Case-insensitive: <code>-i</code>, recursive: <code>-r</code>.</td>
-                    <td><code>grep -r "error" ./logs/</code></td>
-                </tr>
-                <tr>
-                    <td><code>wc</code></td>
-                    <td><strong>W</strong>ord <strong>C</strong>ount. Use <code>-l</code> for lines, <code>-w</code> for words.</td>
-                    <td><code>wc -l file.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>sort</code></td>
-                    <td>Sorts lines of text. Use <code>-n</code> for numeric sort, <code>-r</code> for reverse.</td>
-                    <td><code>sort -nr scores.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>uniq</code></td>
-                    <td>Reports or omits repeated lines. Often used with <code>sort</code>.</td>
-                    <td><code>sort list.txt | uniq -c</code></td>
-                </tr>
-                <tr>
-                    <td><code>sed</code></td>
-                    <td><strong>S</strong>tream <strong>Ed</strong>itor for find-and-replace in files/streams.</td>
-                    <td><code>sed 's/old/new/g' file.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>awk</code></td>
-                    <td>Powerful text processing language for structured data (CSV, logs).</td>
-                    <td><code>awk '{print $1}' data.csv</code></td>
-                </tr>
-                <tr>
-                    <td><code>find</code></td>
-                    <td>Searches for files/directories by name, type, size, or time.</td>
-                    <td><code>find . -name "*.js" -type f</code></td>
-                </tr>
-                <tr>
-                    <td><code>diff</code></td>
-                    <td>Shows differences between two files.</td>
-                    <td><code>diff file1.txt file2.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>file</code></td>
-                    <td>Determines the type of a file (binary, text, image, etc.).</td>
-                    <td><code>file unknown.bin</code></td>
-                </tr>
-                <tr>
-                    <td><code>tar</code></td>
-                    <td>Archive utility for creating/extracting <code>.tar</code> files.</td>
-                    <td><code>tar -czvf archive.tar.gz folder/</code></td>
-                </tr>
-                <tr>
-                    <td><code>gzip</code> / <code>gunzip</code></td>
-                    <td>Compress / decompress files using gzip algorithm.</td>
-                    <td><code>gzip largefile.txt</code></td>
-                </tr>
+                <tr><td><code>grep</code></td><td>Searches for patterns.</td><td><code>grep -r "error" ./logs/</code></td></tr>
+                <tr><td><code>tail</code></td><td>Shows last N lines (<code>-f</code> to follow).</td><td><code>tail -f app.log</code></td></tr>
+                <tr><td><code>find</code></td><td>Searches for files/directories.</td><td><code>find . -name "*.js"</code></td></tr>
+                <tr><td><code>sed</code></td><td>Stream Editor (find/replace).</td><td><code>sed 's/old/new/g' file.txt</code></td></tr>
             </tbody>
         </table>
-
-        <h3>⚙️ System &amp; Process Management</h3>
+        <h3>⚙️ System & Network</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Command</th><th>Description</th><th>Example Usage</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><code>ps</code></td>
-                    <td>Shows running processes. Use <code>-aux</code> for all users' processes.</td>
-                    <td><code>ps aux | grep node</code></td>
-                </tr>
-                <tr>
-                    <td><code>top</code> / <code>htop</code></td>
-                    <td>Interactive process viewer with resource usage (CPU, memory).</td>
-                    <td><code>htop</code></td>
-                </tr>
-                <tr>
-                    <td><code>kill</code></td>
-                    <td>Terminates a process by PID. Use <code>-9</code> to force kill.</td>
-                    <td><code>kill -9 1234</code></td>
-                </tr>
-                <tr>
-                    <td><code>killall</code></td>
-                    <td>Terminates all processes with a given name.</td>
-                    <td><code>killall node</code></td>
-                </tr>
-                <tr>
-                    <td><code>nohup</code></td>
-                    <td>Runs a command immune to hangups (continues after terminal closes).</td>
-                    <td><code>nohup npm start &amp;</code></td>
-                </tr>
-                <tr>
-                    <td><code>jobs</code></td>
-                    <td>Lists background jobs in the current shell session.</td>
-                    <td><code>jobs</code></td>
-                </tr>
-                <tr>
-                    <td><code>fg</code> / <code>bg</code></td>
-                    <td>Brings a job to the foreground or resumes it in the background.</td>
-                    <td><code>fg %1</code></td>
-                </tr>
-                <tr>
-                    <td><code>df</code></td>
-                    <td>Shows disk space usage for mounted filesystems.</td>
-                    <td><code>df -h</code></td>
-                </tr>
-                <tr>
-                    <td><code>du</code></td>
-                    <td>Shows disk usage of files/directories. Use <code>-sh</code> for summary.</td>
-                    <td><code>du -sh /home/user</code></td>
-                </tr>
-                <tr>
-                    <td><code>free</code></td>
-                    <td>Shows memory (RAM) usage. Use <code>-m</code> for MB, <code>-h</code> for human-readable.</td>
-                    <td><code>free -h</code></td>
-                </tr>
-                <tr>
-                    <td><code>uname</code></td>
-                    <td>Shows system information (kernel, architecture, OS).</td>
-                    <td><code>uname -a</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>🔐 Permissions &amp; Ownership</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>chmod</code></td>
-                    <td><strong>Ch</strong>anges file <strong>mod</strong>e (permissions). Use numeric (755) or symbolic (u+x).</td>
-                    <td><code>chmod 755 script.sh</code></td>
-                </tr>
-                <tr>
-                    <td><code>chown</code></td>
-                    <td><strong>Ch</strong>anges file <strong>own</strong>ership (user:group).</td>
-                    <td><code>chown user:group file.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>umask</code></td>
-                    <td>Sets default permissions for newly created files/directories.</td>
-                    <td><code>umask 022</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>🌐 Networking</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>ping</code></td>
-                    <td>Tests network connectivity to a host.</td>
-                    <td><code>ping google.com</code></td>
-                </tr>
-                <tr>
-                    <td><code>curl</code></td>
-                    <td>Transfers data from/to servers (HTTP, FTP, etc.).</td>
-                    <td><code>curl -I https://example.com</code></td>
-                </tr>
-                <tr>
-                    <td><code>wget</code></td>
-                    <td>Downloads files from the internet.</td>
-                    <td><code>wget https://example.com/file.zip</code></td>
-                </tr>
-                <tr>
-                    <td><code>ssh</code></td>
-                    <td>Secure shell for remote server access.</td>
-                    <td><code>ssh user@192.168.1.100</code></td>
-                </tr>
-                <tr>
-                    <td><code>scp</code></td>
-                    <td>Securely copies files between hosts over SSH.</td>
-                    <td><code>scp file.txt user@host:/path/</code></td>
-                </tr>
-                <tr>
-                    <td><code>netstat</code></td>
-                    <td>Displays network connections and ports in use.</td>
-                    <td><code>netstat -tulpn</code></td>
-                </tr>
-                <tr>
-                    <td><code>nslookup</code> / <code>dig</code></td>
-                    <td>DNS lookup tools for domain name resolution.</td>
-                    <td><code>dig example.com</code></td>
-                </tr>
-                <tr>
-                    <td><code>traceroute</code></td>
-                    <td>Traces the path packets take to a destination.</td>
-                    <td><code>traceroute google.com</code></td>
-                </tr>
+                <tr><td><code>htop</code></td><td>Interactive process viewer.</td><td><code>htop</code></td></tr>
+                <tr><td><code>chmod</code></td><td>Changes file permissions.</td><td><code>chmod +x script.sh</code></td></tr>
+                <tr><td><code>curl</code></td><td>Transfers data from/to servers.</td><td><code>curl -I https://example.com</code></td></tr>
             </tbody>
         </table>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 7: GIT COMMANDS (NEW)                                 -->
-    <!-- ============================================================ -->
-
+    <!-- SECTION 7: GIT COMMANDS -->
     <section>
         <h2>7. 🔀 Git Version Control Commands <span class="badge badge-git">Essential</span></h2>
-        <p>Git is the industry standard for version control. These commands cover the entire development workflow from initialization to collaboration.</p>
-
-        <div class="warning-box">
-            <strong>⚠️ Remember:</strong> Always run <code>git status</code> frequently to stay aware of your repository's state!
-        </div>
-
-        <h3>📁 Repository Setup &amp; Configuration</h3>
+        <div class="warning-box"><strong>⚠️ Remember:</strong> Always run <code>git status</code> frequently!</div>
         <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
+            <thead><tr><th>Command</th><th>Description</th><th>Example Usage</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><code>git init</code></td>
-                    <td>Initializes a new Git repository in the current directory.</td>
-                    <td><code>git init</code></td>
-                </tr>
-                <tr>
-                    <td><code>git clone</code></td>
-                    <td>Creates a local copy of a remote repository.</td>
-                    <td><code>git clone https://github.com/user/repo.git</code></td>
-                </tr>
-                <tr>
-                    <td><code>git config</code></td>
-                    <td>Sets or views Git configuration (user name, email, etc.).</td>
-                    <td><code>git config --global user.name "Your Name"</code></td>
-                </tr>
-                <tr>
-                    <td><code>git remote</code></td>
-                    <td>Manages connections to remote repositories.</td>
-                    <td><code>git remote add origin https://github.com/user/repo.git</code></td>
-                </tr>
+                <tr><td><code>git init</code></td><td>Initializes a new repository.</td><td><code>git init</code></td></tr>
+                <tr><td><code>git clone</code></td><td>Copies a remote repository.</td><td><code>git clone &lt;url&gt;</code></td></tr>
+                <tr><td><code>git add</code></td><td>Stages changes.</td><td><code>git add .</code></td></tr>
+                <tr><td><code>git commit</code></td><td>Saves staged changes.</td><td><code>git commit -m "msg"</code></td></tr>
+                <tr><td><code>git pull</code></td><td>Fetches and merges remote changes.</td><td><code>git pull origin main</code></td></tr>
+                <tr><td><code>git push</code></td><td>Uploads local commits.</td><td><code>git push origin main</code></td></tr>
+                <tr><td><code>git checkout -b</code></td><td>Creates and switches to a new branch.</td><td><code>git checkout -b feature</code></td></tr>
+                <tr><td><code>git stash</code></td><td>Shelves uncommitted changes.</td><td><code>git stash</code></td></tr>
             </tbody>
         </table>
+    </section>
 
-        <h3>📝 Daily Workflow (Staging &amp; Committing)</h3>
-        <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>git status</code></td>
-                    <td>Shows the current state of the working directory and staging area.</td>
-                    <td><code>git status</code></td>
-                </tr>
-                <tr>
-                    <td><code>git add</code></td>
-                    <td>Stages changes for the next commit. Use <code>.</code> for all, <code>-p</code> for partial.</td>
-                    <td><code>git add .</code> or <code>git add index.html</code></td>
-                </tr>
-                <tr>
-                    <td><code>git commit</code></td>
-                    <td>Creates a snapshot of staged changes with a message.</td>
-                    <td><code>git commit -m "Add login feature"</code></td>
-                </tr>
-                <tr>
-                    <td><code>git reset</code></td>
-                    <td>Unstages changes or moves HEAD. Use <code>--soft</code>, <code>--hard</code> carefully.</td>
-                    <td><code>git reset HEAD file.txt</code></td>
-                </tr>
-                <tr>
-                    <td><code>git rm</code></td>
-                    <td>Removes files from both working directory and staging.</td>
-                    <td><code>git rm old-file.js</code></td>
-                </tr>
-                <tr>
-                    <td><code>git mv</code></td>
-                    <td>Renames or moves files (staged automatically).</td>
-                    <td><code>git mv old.js new.js</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>📜 History &amp; Inspection</h3>
-        <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>git log</code></td>
-                    <td>Shows the commit history. Use <code>--oneline</code> for condensed view.</td>
-                    <td><code>git log --oneline --graph</code></td>
-                </tr>
-                <tr>
-                    <td><code>git diff</code></td>
-                    <td>Shows changes between commits, branches, or working directory.</td>
-                    <td><code>git diff HEAD~1</code></td>
-                </tr>
-                <tr>
-                    <td><code>git show</code></td>
-                    <td>Displays details of a specific commit.</td>
-                    <td><code>git show abc123</code></td>
-                </tr>
-                <tr>
-                    <td><code>git blame</code></td>
-                    <td>Shows who last modified each line of a file.</td>
-                    <td><code>git blame index.html</code></td>
-                </tr>
-                <tr>
-                    <td><code>git shortlog</code></td>
-                    <td>Summarizes commit activity grouped by author.</td>
-                    <td><code>git shortlog -sn</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>🌿 Branching &amp; Merging</h3>
-        <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>git branch</code></td>
-                    <td>Lists, creates, or deletes branches.</td>
-                    <td><code>git branch feature-auth</code></td>
-                </tr>
-                <tr>
-                    <td><code>git checkout</code></td>
-                    <td>Switches branches or restores files. Use <code>-b</code> to create and switch.</td>
-                    <td><code>git checkout -b new-feature</code></td>
-                </tr>
-                <tr>
-                    <td><code>git switch</code></td>
-                    <td>Newer alternative to <code>checkout</code> for switching branches.</td>
-                    <td><code>git switch main</code></td>
-                </tr>
-                <tr>
-                    <td><code>git merge</code></td>
-                    <td>Combines changes from one branch into the current branch.</td>
-                    <td><code>git merge feature-auth</code></td>
-                </tr>
-                <tr>
-                    <td><code>git rebase</code></td>
-                    <td>Applies commits from one branch onto another (rewrites history).</td>
-                    <td><code>git rebase main</code></td>
-                </tr>
-                <tr>
-                    <td><code>git cherry-pick</code></td>
-                    <td>Applies a specific commit from another branch.</td>
-                    <td><code>git cherry-pick abc123</code></td>
-                </tr>
-                <tr>
-                    <td><code>git stash</code></td>
-                    <td>Shelves uncommitted changes temporarily. Use <code>pop</code> to restore.</td>
-                    <td><code>git stash</code> then <code>git stash pop</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>☁️ Remote Collaboration</h3>
-        <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>git fetch</code></td>
-                    <td>Downloads changes from remote without merging.</td>
-                    <td><code>git fetch origin</code></td>
-                </tr>
-                <tr>
-                    <td><code>git pull</code></td>
-                    <td>Downloads and merges remote changes (fetch + merge).</td>
-                    <td><code>git pull origin main</code></td>
-                </tr>
-                <tr>
-                    <td><code>git push</code></td>
-                    <td>Uploads local commits to a remote repository.</td>
-                    <td><code>git push origin main</code></td>
-                </tr>
-                <tr>
-                    <td><code>git push -u</code></td>
-                    <td>Pushes and sets upstream tracking for the branch.</td>
-                    <td><code>git push -u origin feature-auth</code></td>
-                </tr>
-                <tr>
-                    <td><code>git remote -v</code></td>
-                    <td>Shows configured remote repositories with URLs.</td>
-                    <td><code>git remote -v</code></td>
-                </tr>
-                <tr>
-                    <td><code>git tag</code></td>
-                    <td>Creates or lists tags (version markers) for releases.</td>
-                    <td><code>git tag v1.0.0</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>🔧 Advanced &amp; Troubleshooting</h3>
-        <table class="git-table">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>git reflog</code></td>
-                    <td>Shows a history of all HEAD movements (recover lost commits).</td>
-                    <td><code>git reflog</code></td>
-                </tr>
-                <tr>
-                    <td><code>git bisect</code></td>
-                    <td>Binary search to find the commit that introduced a bug.</td>
-                    <td><code>git bisect start</code></td>
-                </tr>
-                <tr>
-                    <td><code>git revert</code></td>
-                    <td>Creates a new commit that undoes a previous commit (safe undo).</td>
-                    <td><code>git revert abc123</code></td>
-                </tr>
-                <tr>
-                    <td><code>git reset --hard</code></td>
-                    <td>Resets the working directory and staging to a previous state (⚠️ destructive).</td>
-                    <td><code>git reset --hard HEAD~1</code></td>
-                </tr>
-                <tr>
-                    <td><code>git clean</code></td>
-                    <td>Removes untracked files from the working directory.</td>
-                    <td><code>git clean -fd</code></td>
-                </tr>
-                <tr>
-                    <td><code>git grep</code></td>
-                    <td>Searches for patterns across all files in the repository.</td>
-                    <td><code>git grep "TODO"</code></td>
-                </tr>
-            </tbody>
-        </table>
-
+    <!-- SECTION 8: QUICK REFERENCE SUMMARY -->
+    <section>
+        <h2>8. 📌 Quick Reference Summary</h2>
         <div class="note-box">
-            <strong>💡 Git Aliases:</strong> Speed up your workflow by creating aliases:
-            <pre><code>git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.st status
-git config --global alias.lg "log --oneline --graph --all"</code></pre>
-        </div>
-
-        <div class="quiz-section">
-            <h3>🧪 Knowledge Check: Git Commands</h3>
-            <div class="question">
-                <p>1. Which command initializes a new Git repository in the current directory?</p>
-                <ul class="options">
-                    <li class="correct">git init</li>
-                    <li>git start</li>
-                    <li>git create</li>
-                    <li>git new</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>2. What does <code>git status</code> show?</p>
-                <ul class="options">
-                    <li>The commit history.</li>
-                    <li class="correct">The current state of the working directory and staging area.</li>
-                    <li>Remote repository URLs.</li>
-                    <li>Configured Git aliases.</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>3. Which command downloads changes from a remote repository and merges them into the current branch?</p>
-                <ul class="options">
-                    <li>git fetch</li>
-                    <li class="correct">git pull</li>
-                    <li>git push</li>
-                    <li>git clone</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>4. How do you create and switch to a new branch called "feature-login" in one command?</p>
-                <ul class="options">
-                    <li>git branch feature-login</li>
-                    <li>git switch feature-login</li>
-                    <li class="correct">git checkout -b feature-login</li>
-                    <li>git new-branch feature-login</li>
-                </ul>
-            </div>
-            <div class="question">
-                <p>5. Which command temporarily shelves uncommitted changes so you can switch branches?</p>
-                <ul class="options">
-                    <li>git shelve</li>
-                    <li>git save</li>
-                    <li class="correct">git stash</li>
-                    <li>git hide</li>
-                </ul>
-            </div>
+            <strong>🚀 Productivity Tip:</strong> Combine commands with pipes (<code>|</code>) to chain them:
+            <pre><code># Find top 5 largest files
+find . -type f -exec du -h {} + | sort -rh | head -5</code></pre>
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- SECTION 8: QUICK REFERENCE SUMMARY                            -->
+    <!-- SECTION 9: PRACTICAL EXERCISE (NEW)                          -->
     <!-- ============================================================ -->
-
     <section>
-        <h2>8. 📌 Quick Reference Summary</h2>
-
-        <div class="command-grid">
-            <div class="command-card">
-                <code>grep -r "pattern" ./</code>
-                <div class="desc">Search recursively for text in files</div>
-                <span class="tag-small">🔍 Search</span>
-            </div>
-            <div class="command-card">
-                <code>find . -name "*.js"</code>
-                <div class="desc">Find files by name pattern</div>
-                <span class="tag-small">📁 Files</span>
-            </div>
-            <div class="command-card">
-                <code>sed -i 's/old/new/g' file</code>
-                <div class="desc">Find and replace in file (in-place)</div>
-                <span class="tag-small">✏️ Edit</span>
-            </div>
-            <div class="command-card">
-                <code>tail -f app.log</code>
-                <div class="desc">Stream log file in real-time</div>
-                <span class="tag-small">📊 Logs</span>
-            </div>
-            <div class="command-card">
-                <code>ps aux | grep node</code>
-                <div class="desc">Find running Node.js processes</div>
-                <span class="tag-small">⚙️ Processes</span>
-            </div>
-            <div class="command-card">
-                <code>chmod +x script.sh</code>
-                <div class="desc">Make a script executable</div>
-                <span class="tag-small">🔐 Permissions</span>
-            </div>
-            <div class="command-card">
-                <code>curl -I https://example.com</code>
-                <div class="desc">Fetch HTTP headers from a URL</div>
-                <span class="tag-small">🌐 Network</span>
-            </div>
-            <div class="command-card">
-                <code>git log --oneline --graph</code>
-                <div class="desc">Visualize commit history with branches</div>
-                <span class="tag-small">🔀 Git</span>
-            </div>
-            <div class="command-card">
-                <code>git stash &amp;&amp; git pull</code>
-                <div class="desc">Stash changes, then pull remote updates</div>
-                <span class="tag-small">🔀 Git</span>
-            </div>
-            <div class="command-card">
-                <code>git branch -d feature</code>
-                <div class="desc">Delete a local branch (after merging)</div>
-                <span class="tag-small">🔀 Git</span>
-            </div>
-            <div class="command-card">
-                <code>df -h &amp;&amp; du -sh *</code>
-                <div class="desc">Check disk usage at system and folder level</div>
-                <span class="tag-small">💾 Storage</span>
-            </div>
-            <div class="command-card">
-                <code>tar -czvf backup.tar.gz folder/</code>
-                <div class="desc">Create a compressed archive of a folder</div>
-                <span class="tag-small">📦 Archive</span>
-            </div>
+        <h2>9. 🏋️ Practical Exercise: 166-Step Terminal Walkthrough</h2>
+        <p>This comprehensive exercise tests your muscle memory for terminal navigation, file manipulation, and search commands. Follow the steps sequentially in your terminal.</p>
+        
+        <div class="note-box">
+            <strong>📝 Note on Placeholders:</strong> Commands containing <code>&lt;placeholders&gt;</code> (like <code>&lt;directory&gt;</code> or <code>&lt;filename&gt;</code>) require you to input the actual names of the folders and files present in your specific lab environment, or create dummy ones if they don't exist.
         </div>
 
-        <div class="note-box">
-            <strong>🚀 Productivity Tip:</strong> Combine commands with pipes (<code>|</code>) to chain them:
-            <pre><code># Find top 5 largest files in the current directory
-find . -type f -exec du -h {} + | sort -rh | head -5
-
-# Count occurrences of "error" in all log files
-grep -r "error" *.log | wc -l</code></pre>
+        <div class="scrollable-table">
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Action Required</th>
+                        <th>Terminal Command (Solution)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Restart Terminal</td><td><em>Close & reopen terminal</em> (or <code>reset</code>)</td></tr>
+                    <tr><td>2</td><td>Print Working Directory</td><td><code>pwd</code></td></tr>
+                    <tr><td>3</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>4</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>5</td><td>Print Working Directory</td><td><code>pwd</code></td></tr>
+                    <tr><td>6</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>7</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>8</td><td>Print Working Directory</td><td><code>pwd</code></td></tr>
+                    <tr><td>9</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>10</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>11</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>12</td><td>More</td><td><code>more &lt;filename&gt;</code></td></tr>
+                    <tr><td>13</td><td>Clear</td><td><code>clear</code></td></tr>
+                    <tr><td>14</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>15</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>16</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>17</td><td>Long List Format</td><td><code>ls -l</code></td></tr>
+                    <tr><td>18</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>19</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>20</td><td>More</td><td><code>more &lt;filename&gt;</code></td></tr>
+                    <tr><td>21</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>22</td><td>More</td><td><code>more &lt;filename&gt;</code></td></tr>
+                    <tr><td>23</td><td>Clear</td><td><code>clear</code></td></tr>
+                    <tr><td>24</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>25</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>26</td><td>Print Working Directory</td><td><code>pwd</code></td></tr>
+                    <tr><td>27</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>28</td><td>More</td><td><code>more &lt;filename&gt;</code></td></tr>
+                    <tr><td>29</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>30</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>31</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>32</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>33</td><td>Clear</td><td><code>clear</code></td></tr>
+                    <tr><td>34</td><td>Make Directory</td><td><code>mkdir &lt;new_folder&gt;</code></td></tr>
+                    <tr><td>35</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>36</td><td>Change Directory</td><td><code>cd &lt;new_folder&gt;</code></td></tr>
+                    <tr><td>37</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>38</td><td>Echo</td><td><code>echo "Hello World"</code></td></tr>
+                    <tr><td>39</td><td>Touch</td><td><code>touch file1.txt</code></td></tr>
+                    <tr><td>40</td><td>Touch</td><td><code>touch file2.txt</code></td></tr>
+                    <tr><td>41</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>42</td><td>Touch</td><td><code>touch file3.txt</code></td></tr>
+                    <tr><td>43</td><td>Touch</td><td><code>touch file4.txt</code></td></tr>
+                    <tr><td>44</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>45</td><td>Help</td><td><code>man &lt;command&gt;</code> (or <code>&lt;cmd&gt; --help</code>)</td></tr>
+                    <tr><td>46</td><td>List All</td><td><code>ls -a</code></td></tr>
+                    <tr><td>47</td><td>Change Directory</td><td><code>cd &lt;directory&gt;</code></td></tr>
+                    <tr><td>48</td><td>Touch</td><td><code>touch file5.txt</code></td></tr>
+                    <tr><td>49</td><td>Touch</td><td><code>touch file6.txt</code></td></tr>
+                    <tr><td>50</td><td>Touch</td><td><code>touch file7.txt</code></td></tr>
+                    <tr><td>51</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>52</td><td>Touch</td><td><code>touch file8.txt</code></td></tr>
+                    <tr><td>53</td><td>Touch</td><td><code>touch file9.txt</code></td></tr>
+                    <tr><td>54</td><td>Touch</td><td><code>touch file10.txt</code></td></tr>
+                    <tr><td>55</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>56</td><td>Touch</td><td><code>touch file11.txt</code></td></tr>
+                    <tr><td>57</td><td>Touch</td><td><code>touch file12.txt</code></td></tr>
+                    <tr><td>58</td><td>Touch</td><td><code>touch file13.txt</code></td></tr>
+                    <tr><td>59</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>60</td><td>Make Directory</td><td><code>mkdir &lt;sub_folder&gt;</code></td></tr>
+                    <tr><td>61</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>62</td><td>Copy</td><td><code>cp &lt;source_file&gt; &lt;sub_folder&gt;/</code></td></tr>
+                    <tr><td>63</td><td>Change Directory</td><td><code>cd &lt;sub_folder&gt;</code></td></tr>
+                    <tr><td>64</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>65</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>66</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>67</td><td>Remove</td><td><code>rm &lt;file_to_delete&gt;</code></td></tr>
+                    <tr><td>68</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>69</td><td>Copy</td><td><code>cp &lt;file1&gt; &lt;destination&gt;/</code></td></tr>
+                    <tr><td>70</td><td>Copy</td><td><code>cp &lt;file2&gt; &lt;destination&gt;/</code></td></tr>
+                    <tr><td>71</td><td>Change Directory</td><td><code>cd &lt;destination&gt;</code></td></tr>
+                    <tr><td>72</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>73</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>74</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>75</td><td>Remove</td><td><code>rm &lt;file1&gt;</code></td></tr>
+                    <tr><td>76</td><td>Remove</td><td><code>rm &lt;file2&gt;</code></td></tr>
+                    <tr><td>77</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>78</td><td>Rename</td><td><code>mv &lt;old_name&gt; &lt;new_name&gt;</code></td></tr>
+                    <tr><td>79</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>80</td><td>Rename</td><td><code>mv &lt;old_name2&gt; &lt;new_name2&gt;</code></td></tr>
+                    <tr><td>81</td><td>Rename</td><td><code>mv &lt;old_name3&gt; &lt;new_name3&gt;</code></td></tr>
+                    <tr><td>82</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>83</td><td>Make Directory</td><td><code>mkdir &lt;archive_folder&gt;</code></td></tr>
+                    <tr><td>84</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>85</td><td>Move</td><td><code>mv &lt;file&gt; &lt;archive_folder&gt;/</code></td></tr>
+                    <tr><td>86</td><td>Find</td><td><code>find . -name "&lt;pattern&gt;"</code></td></tr>
+                    <tr><td>87</td><td>Move</td><td><code>mv &lt;found_file&gt; &lt;archive_folder&gt;/</code></td></tr>
+                    <tr><td>88</td><td>Move</td><td><code>mv &lt;another_file&gt; &lt;archive_folder&gt;/</code></td></tr>
+                    <tr><td>89</td><td>Find</td><td><code>find . -name "*.txt"</code></td></tr>
+                    <tr><td>90</td><td>Make Directory</td><td><code>mkdir &lt;backup1&gt;</code></td></tr>
+                    <tr><td>91</td><td>Make Directory</td><td><code>mkdir &lt;backup2&gt;</code></td></tr>
+                    <tr><td>92</td><td>Move</td><td><code>mv &lt;file&gt; &lt;backup1&gt;/</code></td></tr>
+                    <tr><td>93</td><td>Find</td><td><code>find . -type f -name "*.log"</code></td></tr>
+                    <tr><td>94</td><td>Move</td><td><code>mv &lt;log_file&gt; &lt;backup2&gt;/</code></td></tr>
+                    <tr><td>95</td><td>Move</td><td><code>mv &lt;another_log&gt; &lt;backup2&gt;/</code></td></tr>
+                    <tr><td>96</td><td>Find</td><td><code>find . -name "*"</code></td></tr>
+                    <tr><td>97</td><td>Find Subfolder</td><td><code>find . -type d -name "&lt;folder&gt;"</code></td></tr>
+                    <tr><td>98</td><td>Find</td><td><code>find / -name "&lt;file&gt;" 2&gt;/dev/null</code></td></tr>
+                    <tr><td>99</td><td>Find</td><td><code>find . -size +1M</code></td></tr>
+                    <tr><td>100</td><td>Find</td><td><code>find . -mtime -7</code></td></tr>
+                    <tr><td>101</td><td>Find</td><td><code>find . -user &lt;username&gt;</code></td></tr>
+                    <tr><td>102</td><td>Find</td><td><code>find . -perm 777</code></td></tr>
+                    <tr><td>103</td><td>Change Directory</td><td><code>cd &lt;target_dir&gt;</code></td></tr>
+                    <tr><td>104</td><td>Make Directory</td><td><code>mkdir &lt;dir_A&gt;</code></td></tr>
+                    <tr><td>105</td><td>Change Directory</td><td><code>cd &lt;dir_A&gt;</code></td></tr>
+                    <tr><td>106</td><td>Make Directory</td><td><code>mkdir &lt;dir_B&gt;</code></td></tr>
+                    <tr><td>107</td><td>Change Directory</td><td><code>cd &lt;dir_B&gt;</code></td></tr>
+                    <tr><td>108</td><td>Touch</td><td><code>touch deep_file.txt</code></td></tr>
+                    <tr><td>109</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>110</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>111</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>112</td><td>Move</td><td><code>mv &lt;dir_A&gt; &lt;new_location&gt;/</code></td></tr>
+                    <tr><td>113</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>114</td><td>Change Directory</td><td><code>cd &lt;new_location&gt;</code></td></tr>
+                    <tr><td>115</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>116</td><td>Find</td><td><code>find . -name "deep_file.txt"</code></td></tr>
+                    <tr><td>117</td><td>Move</td><td><code>mv deep_file.txt .</code></td></tr>
+                    <tr><td>118</td><td>Find</td><td><code>find . -type d</code></td></tr>
+                    <tr><td>119</td><td>Find</td><td><code>find . -type f</code></td></tr>
+                    <tr><td>120</td><td>Move</td><td><code>mv &lt;file&gt; &lt;dir&gt;/</code></td></tr>
+                    <tr><td>121</td><td>Find</td><td><code>find . -empty</code></td></tr>
+                    <tr><td>122</td><td>Remove Directory</td><td><code>rmdir &lt;empty_dir&gt;</code></td></tr>
+                    <tr><td>123</td><td>Remove</td><td><code>rm &lt;file&gt;</code></td></tr>
+                    <tr><td>124</td><td>Remove Directory</td><td><code>rmdir &lt;another_empty_dir&gt;</code></td></tr>
+                    <tr><td>125</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>126</td><td>Make Directory</td><td><code>mkdir &lt;test_dir&gt;</code></td></tr>
+                    <tr><td>127</td><td>Move</td><td><code>mv &lt;file&gt; &lt;test_dir&gt;/</code></td></tr>
+                    <tr><td>128</td><td>Find</td><td><code>find . -name "&lt;file&gt;"</code></td></tr>
+                    <tr><td>129</td><td>Move</td><td><code>mv &lt;file1&gt; &lt;test_dir&gt;/</code></td></tr>
+                    <tr><td>130</td><td>Move</td><td><code>mv &lt;file2&gt; &lt;test_dir&gt;/</code></td></tr>
+                    <tr><td>131</td><td>Find</td><td><code>find &lt;test_dir&gt; -type f</code></td></tr>
+                    <tr><td>132</td><td>Make Directory</td><td><code>mkdir &lt;final_dir&gt;</code></td></tr>
+                    <tr><td>133</td><td>Touch</td><td><code>touch final1.txt</code></td></tr>
+                    <tr><td>134</td><td>Touch</td><td><code>touch final2.txt</code></td></tr>
+                    <tr><td>135</td><td>Find</td><td><code>find . -name "final*.txt"</code></td></tr>
+                    <tr><td>136</td><td>Touch</td><td><code>touch final3.txt</code></td></tr>
+                    <tr><td>137</td><td>Touch</td><td><code>touch final4.txt</code></td></tr>
+                    <tr><td>138</td><td>Find</td><td><code>find . -maxdepth 1 -type f</code></td></tr>
+                    <tr><td>139</td><td>Remove Help</td><td><code>rm --help</code> (or <code>man rm</code>)</td></tr>
+                    <tr><td>140</td><td>Remove Recursively</td><td><code>rm -r &lt;test_dir&gt;</code></td></tr>
+                    <tr><td>141</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>142</td><td>Touch</td><td><code>touch log1.txt</code></td></tr>
+                    <tr><td>143</td><td>Touch</td><td><code>touch log2.txt</code></td></tr>
+                    <tr><td>144</td><td>Touch</td><td><code>touch log3.txt</code></td></tr>
+                    <tr><td>145</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>146</td><td>Echo</td><td><code>echo "Starting log..."</code></td></tr>
+                    <tr><td>147</td><td>Echo</td><td><code>echo "Processing data..."</code></td></tr>
+                    <tr><td>148</td><td>Echo</td><td><code>echo "Task complete."</code></td></tr>
+                    <tr><td>149</td><td>Echo to File</td><td><code>echo "Log entry 1" &gt; log1.txt</code></td></tr>
+                    <tr><td>150</td><td>More</td><td><code>more log1.txt</code></td></tr>
+                    <tr><td>151</td><td>Echo to File</td><td><code>echo "Log entry 2" &gt;&gt; log1.txt</code></td></tr>
+                    <tr><td>152</td><td>More</td><td><code>more log1.txt</code></td></tr>
+                    <tr><td>153</td><td>Echo to File</td><td><code>echo "Log entry 3" &gt;&gt; log1.txt</code></td></tr>
+                    <tr><td>154</td><td>More</td><td><code>more log1.txt</code></td></tr>
+                    <tr><td>155</td><td>Change Directory</td><td><code>cd ..</code></td></tr>
+                    <tr><td>156</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>157</td><td>Rename</td><td><code>mv &lt;old_folder&gt; &lt;new_folder&gt;</code></td></tr>
+                    <tr><td>158</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>159</td><td>Copy Help</td><td><code>cp --help</code> (or <code>man cp</code>)</td></tr>
+                    <tr><td>160</td><td>Copy</td><td><code>cp -r &lt;source_folder&gt; &lt;destination&gt;/</code></td></tr>
+                    <tr><td>161</td><td>List</td><td><code>ls</code></td></tr>
+                    <tr><td>162</td><td>Find</td><td><code>find . -name "*.txt"</code></td></tr>
+                    <tr><td>163</td><td>Find</td><td><code>find . -type d -empty</code></td></tr>
+                    <tr><td>164</td><td>Clear</td><td><code>clear</code></td></tr>
+                    <tr><td>165</td><td>Echo</td><td><code>echo "Exercise Complete!"</code></td></tr>
+                    <tr><td>166</td><td>Exit</td><td><code>exit</code></td></tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
