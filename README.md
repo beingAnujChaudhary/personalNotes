@@ -103,7 +103,7 @@ Your GitHub repository is your resume. Make it exceptional:
 | **StatQuest: Statistics Fundamentals** | Derivatives (for backprop) and probability distributions | [Link](https://www.youtube.com/@StatQuest) |
 | **Mathematics for Machine Learning (Book)** | Chapters 2-6 | [Link](https://mml-book.github.io/) |
 | **Python for Data Analysis (Book)** | Data Cleaning, Reshaping, Time-Series | [Link](https://www.oreilly.com/library/view/python-for-data/9781491957653/) |
-| **Mode SQL Tutorial** | Joins, window functions, query optimization | [Link](https://mode.com/sql-tutorial/),[freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql) |
+| **Mode SQL Tutorial** | Joins, window functions, query optimization | [Link](https://mode.com/sql-tutorial/),[freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) [Notes](https://github.com/beingAnujChaudhary/personalNotes/tree/main/notebooks/5.%20sql/kaggleSQL), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql) |
 
 ### 💻 Projects
 
