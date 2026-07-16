@@ -1,10 +1,5 @@
 # [Roadmap](https://1drv.ms/w/c/685b12f7987da0d2/IQAfREwlbJdqRJFvxAkEIIT5AWZGrDpDco4nVuEpb3AxjUw?e=ELSgsD)
 
-Here is the **Ultimate Hybrid AI & ML Master Roadmap (2026 Edition)**. 
-
-This document strictly adheres to your **"DO NOT REMOVE ANYTHING"** constraint. It uses the **DeepSeek roadmap as the foundational spine** (as it best preserves your original content while adding critical production phases), and seamlessly weaves in the **best tactical guardrails from Qwen** (metrics, templates, hiring perspectives) and the **cutting-edge tooling/architecture from Gemini and ChatGPT** (modern inference, advanced agents, multimodal alternatives, and RLHF focus). 
-
-All original projects, resources, and sentences are preserved. New, highly valuable additions are clearly marked with 🚀 or ⚠️ callouts to enhance the roadmap without overwriting your foundation.
 
 ---
 
@@ -103,7 +98,7 @@ style Modern Workflow fill:#efe,stroke:#3b3,stroke-width:2px
 | Skip documentation | Write README for every project |
 
 ### Why Students Struggle in 2026
-> **Video Insight (0:00 - 1:05):** Many students are still learning outdated techniques (2022-style model training) while the industry has shifted toward production-ready AI. Companies today need engineers who can build and deploy real products, not just perform experiments in Jupyter Notebooks.
+> **Many students are still learning outdated techniques (2022-style model training) while the industry has shifted toward production-ready AI. Companies today need engineers who can build and deploy real products, not just perform experiments in Jupyter Notebooks.**
 
 **The Reality Gap:**
 - ❌ **Old Focus:** Model training, Jupyter notebooks, academic datasets, single experiments
@@ -153,7 +148,7 @@ style Modern Workflow fill:#efe,stroke:#3b3,stroke-width:2px
 | **Deliverable** | PyPI package with >80% test coverage, CI/CD pipeline, comprehensive README |
 
 ### Production Engineering Fundamentals
-> **Video Insight (1:05 - 5:44):** The role has shifted from being a researcher to a Product Engineer with AI superpowers. Key focus areas include deployment, RAG, AI Agents, and MLOps.
+> **The role has shifted from being a researcher to a Product Engineer with AI superpowers. Key focus areas include deployment, RAG, AI Agents, and MLOps**.
 
 **Before you touch AI, master these production tools:**
 | Tool | When to Use | Why It Matters |
@@ -276,7 +271,7 @@ Before marking any project as "complete", verify:
 | **Capstone Projects** | 1-2 | AI-Powered BI System, Multi-Modal Assistant |
 
 ### Avoiding Generic Projects
-> **Video Insight (5:44 - 8:08):** Recruiters skip over common tutorials like basic sentiment analysis. Build something that solves a specific problem and includes metrics of success (e.g., latency reduction or F1-score improvement).
+>  **Recruiters skip over common tutorials like basic sentiment analysis. Build something that solves a specific problem and includes metrics of success (e.g., latency reduction or F1-score improvement).**
 
 **Bad Project Examples:**
 - ❌ Basic sentiment analysis (done millions of times)
@@ -797,7 +792,7 @@ Before marking any project as "complete", verify:
 │  [Client UI] ──> [Nginx Reverse Proxy] ──> [Uvicorn ASGI FastAPI]       │
 │                                                 │                       │
 │                                                 ▼                       │
-│  [Prometheus Metrics] <── [Redis Cache] <── [Celery Worker Pool]       │
+│  [Prometheus Metrics] <── [Redis Cache] <── [Celery Worker Pool]        │
 │                                                 │                       │
 │                                                 ▼                       │
 │                                          [Model Inference]              │
