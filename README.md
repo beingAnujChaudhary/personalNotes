@@ -98,7 +98,7 @@ Your GitHub repository is your resume. Make it exceptional:
 
 | Resource | Specific Focus | Link |
 |----------|----------------|------|
-| **Kaggle Learn: Python & Pandas** | Data manipulation, GroupBy, handling missing values | [Link](https://www.kaggle.com/learn/python) |
+| **Kaggle Learn: Python & Pandas** | Data manipulation, GroupBy, handling missing values | [Python](https://www.kaggle.com/learn/python) - [✅ Done](https://www.kaggle.com/learn/certification/beinganujchaudhary/python), [Pandas](https://www.kaggle.com/learn/pandasz), [Intro to SQL](https://www.kaggle.com/learn/intro-to-sql), [Advanced SQL](https://www.kaggle.com/learn/advanced-sql) |
 | **3Blue1Brown: Essence of Linear Algebra** | Visual intuition of vectors, matrices, and transformations | [Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) |
 | **StatQuest: Statistics Fundamentals** | Derivatives (for backprop) and probability distributions | [Link](https://www.youtube.com/@StatQuest) |
 | **Mathematics for Machine Learning (Book)** | Chapters 2-6 | [Link](https://mml-book.github.io/) |
@@ -157,7 +157,7 @@ Your GitHub repository is your resume. Make it exceptional:
 | Resource | Specific Focus | Link |
 |----------|----------------|------|
 | **Machine Learning Specialization** (Andrew Ng) | Core math behind cost functions, gradient descent, bias-variance | [Link](https://www.deeplearning.ai/courses/machine-learning-specialization/) |
-| **Kaggle: Intro to ML + Intermediate ML** | Pipelines, cross-validation, XGBoost | [Link](https://www.kaggle.com/learn/intro-to-machine-learning) |
+| **Kaggle: Intro to ML + Intermediate ML** | Pipelines, cross-validation, XGBoost | [Intro to ML](https://www.kaggle.com/learn/intro-to-machine-learning), [Intermediate ML](https://www.kaggle.com/learn/intermediate-machine-learning) |
 | **fast.ai: Intro to ML for Coders** | Practical, top-down implementation of Random Forests | [Link](https://course18.fast.ai/ml.html) |
 | **StatQuest ML Playlist** | Demystify complex algorithms visually | [Link](https://www.youtube.com/playlist?list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1) |
 | **Hands-On ML with Scikit-Learn...** (Book) | Ch 2 (End-to-End), Ch 4 (Training Models), Ch 6-7 (Trees & Ensembles) | [Link](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/) |
