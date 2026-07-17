@@ -1,0 +1,5 @@
+# Settings
+settings:
+  random_seed: 42
+  default_device: "cuda"
+  debug: false

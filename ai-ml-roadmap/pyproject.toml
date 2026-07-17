@@ -1,0 +1,155 @@
+[project]
+name = "ai-ml-roadmap"
+version = "0.1.0"
+description = "Ultimate Hybrid AI & ML Roadmap"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "polars",
+    "pyarrow",
+    "matplotlib",
+    "plotly",
+    "jupyterlab",
+    "ipykernel",
+    "rich",
+    "tqdm",
+    "python-dotenv",
+    "pydantic",
+]
+
+[project.optional-dependencies]
+
+ml = [
+    "scikit-learn",
+    "xgboost",
+    "lightgbm",
+    "catboost",
+    "optuna",
+    "imbalanced-learn",
+    "shap",
+]
+
+deep-learning = [
+    "torch",
+    "torchvision",
+    "torchaudio",
+]
+
+vision = [
+    "opencv-python",
+    "albumentations",
+    "timm",
+    "ultralytics",
+]
+
+nlp = [
+    "transformers",
+    "datasets",
+    "accelerate",
+    "evaluate",
+    "sentence-transformers",
+]
+
+llm = [
+    "langchain",
+    "langchain-community",
+    "langchain-openai",
+    "langgraph",
+    "llama-index",
+    "peft",
+    "trl",
+    "tiktoken",
+]
+
+vectordb = [
+    "chromadb",
+    "faiss-cpu",
+    "qdrant-client",
+]
+
+api = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "python-multipart",
+]
+
+database = [
+    "sqlalchemy",
+    "psycopg[binary]",
+    "alembic",
+]
+
+data-engineering = [
+    "duckdb",
+    "redis",
+    "celery",
+]
+
+mlops = [
+    "mlflow",
+    "wandb",
+    "evidently",
+    "dvc",
+]
+
+deployment = [
+    "streamlit",
+    "gradio",
+]
+
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+]
+
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "mypy",
+    "isort",
+    "pre-commit",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ai-ml-roadmap"
+Documentation = "https://github.com/yourusername/ai-ml-roadmap/blob/main/README.md"
+Repository = "https://github.com/yourusername/ai-ml-roadmap"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --strict-markers"
+python_files = "test_*.py"
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pre-commit]
+repos = [
+    { repo = "https://github.com/pre-commit/pre-commit-hooks", rev = "v4.4.0", hooks = [{ id = "trailing-whitespace" }, { id = "end-of-file-fixer" }, { id = "check-yaml" }, { id = "check-added-large-files" }] },
+    { repo = "https://github.com/psf/black", rev = "23.11.0", hooks = [{ id = "black" }] },
+    { repo = "https://github.com/astral-sh/ruff-pre-commit", rev = "v0.1.8", hooks = [{ id = "ruff", args = ["--fix"] }] },
+    { repo = "https://github.com/PyCQA/isort", rev = "5.12.0", hooks = [{ id = "isort" }] },
+    { repo = "https://github.com/pre-commit/mirrors-mypy", rev = "v1.7.0", hooks = [{ id = "mypy" }] },
+]

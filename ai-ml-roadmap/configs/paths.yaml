@@ -1,0 +1,6 @@
+# Paths Configuration
+paths:
+  data: "datasets/"
+  models: "models/"
+  experiments: "experiments/"
+  logs: "logs/"

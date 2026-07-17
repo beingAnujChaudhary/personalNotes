@@ -1,0 +1,118 @@
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ============================================
+# Jupyter Notebooks
+# ============================================
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Keep notebooks under version control
+# *.ipynb is NOT ignored globally
+
+# ============================================
+# Data & Models
+# ============================================
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.tflite
+
+# Ignore large datasets but allow sample_data
+datasets/
+!datasets/sample_data/
+data/
+!data/sample_data/
+
+models/
+experiments/
+
+# ============================================
+# Environment & Secrets
+# ============================================
+.env
+.env.local
+*.key
+*.pem
+*.crt
+secrets.yaml
+credentials.json
+service-account.json
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+.dockerignore
+*.dockerignore
+
+# ============================================
+# IDE
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================================
+# MLOps
+# ============================================
+mlruns/
+mlflow.db
+wandb/
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+
+# ============================================
+# Terraform
+# ============================================
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ============================================
+# OS
+# ============================================
+Thumbs.db
+Desktop.ini
+
+# ============================================
+# Temporary
+# ============================================
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ============================================
+# Build & Distribution
+# ============================================
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
