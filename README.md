@@ -411,7 +411,7 @@ Before marking any project as "complete", verify:
 | Resource | Specific Focus | Link |
 |----------|----------------|------|
 | **Machine Learning Specialization** (Andrew Ng) | Core math behind cost functions, gradient descent, bias-variance | [Link](https://www.deeplearning.ai/courses/machine-learning-specialization/) |
-| **Kaggle: Intro to ML + Intermediate ML** | Pipelines, cross-validation, XGBoost | [Intro to ML](https://www.kaggle.com/learn/intro-to-machine-learning), [Intermediate ML](https://www.kaggle.com/learn/intermediate-machine-learning) |
+| **Kaggle: Intro to ML + Intermediate ML** | Pipelines, cross-validation, XGBoost | [✅ Intro to ML](https://www.kaggle.com/learn/certification/beinganujchaudhary/intro-to-machine-learning) $\rightarrow$ [Notes](https://github.com/beingAnujChaudhary/personalNotes/blob/main/ai-ml-roadmap/phase-01-machine-learning/assets/kaggleIntrotoMachineLearning/readme.md), [Intermediate ML](https://www.kaggle.com/learn/intermediate-machine-learning) |
 | **fast.ai: Intro to ML for Coders** | Practical, top-down implementation of Random Forests | [Link](https://course18.fast.ai/ml.html) |
 | **StatQuest ML Playlist** | Demystify complex algorithms visually | [Link](https://www.youtube.com/playlist?list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1) |
 | **Hands-On ML with Scikit-Learn...** (Book) | Ch 2 (End-to-End), Ch 4 (Training Models), Ch 6-7 (Trees & Ensembles) | [Link](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/) |
@@ -538,6 +538,7 @@ Before marking any project as "complete", verify:
 ### 📚 Learning Resources & Specific Focus
 | Resource | Specific Focus | Link |
 |----------|----------------|------|
+|**Intro to Deep Learning**||[Kaggle Link](https://www.kaggle.com/Learn/intro-to-Deep-Learning)| 
 | **Deep Learning Specialization** (Andrew Ng) | Courses 1-3 ONLY (Courses 4-5 are outdated) | [Link](https://www.deeplearning.ai/courses/deep-learning-specialization/) |
 | **Practical Deep Learning for Coders** (fast.ai) | High-level APIs and getting SOTA results quickly | [Link](https://course.fast.ai/) |
 | **MIT 6.S191 Introduction to DL** | Modern architectural overviews | [Link](http://introtodeeplearning.com/) |
