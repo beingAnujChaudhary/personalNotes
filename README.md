@@ -118,10 +118,10 @@ style Modern Workflow fill:#efe,stroke:#3b3,stroke-width:2px
 | Skill | Why It Matters | Resource |
 |-------|----------------|----------|
 | **Python** | The lingua franca of AI. Must be fluent in OOP, type hints, context managers, generators, decorators | [freeCodeCamp Python](https://www.freecodecamp.org/learn/python-v9/) |
-| **APIs** | All AI systems communicate via APIs. Master FastAPI, REST, authentication, request/response models | [FastAPI Tutorial](https://fastapi.tiangolo.com/tutorial/) |
-| **SQL** | Data access and analytics. Master joins, window functions, query optimization, CTEs | [Mode SQL Tutorial](https://mode.com/sql-tutorial/) |
-| **Git** | Version control is non-negotiable. Master branching, merging, rebasing, PR workflows | [GitHub Skills](https://skills.github.com/) |
-| **Linux** | Most production servers run Linux. Master bash, SSH, file permissions, process management | [Linux Journey](https://linuxjourney.com/) |
+| **APIs** | All AI systems communicate via APIs. Master FastAPI, REST, authentication, request/response models | [FastAPI Tutorial](https://fastapi.tiangolo.com/tutorial/), [freeCodeCamp Back-End Development and APIs Certification](https://www.freecodecamp.org/learn/back-end-development-and-apis-v9/) |
+| **SQL** | Data access and analytics. Master joins, window functions, query optimization, CTEs | [freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql)  |
+| **Git** | Version control is non-negotiable. Master branching, merging, rebasing, PR workflows | [GitHub Skills](https://skills.github.com/) [Career Essentials in GitHub Professional Certificate](https://www.linkedin.com/learning/paths/career-essentials-in-github-professional-certificate)|
+| **Linux** | Most production servers run Linux. Master bash, SSH, file permissions, process management | [Labex Linux ](https://labex.io/learn), [Ubuntu Linux Professional Certificate by Canonical](https://www.linkedin.com/learning/paths/ubuntu-linux-professional-certificate-by-canonical)|
 | **Testing** | Catch bugs before they reach production. Master pytest, unit tests, integration tests, mocking | [pytest Documentation](https://docs.pytest.org/) |
 | **Packaging** | Reusable, shareable code. Master `pyproject.toml`, `setup.py`, virtual environments, dependency management | [Python Packaging Guide](https://packaging.python.org/) |
 
@@ -309,13 +309,9 @@ Before marking any project as "complete", verify:
 | **StatQuest: Statistics Fundamentals** | Derivatives (for backprop) and probability distributions | [Link](https://www.youtube.com/@StatQuest) |
 | **Mathematics for Machine Learning (Book)** | Chapters 2-6 | [Link](https://mml-book.github.io/) |
 | **Python for Data Analysis (Book)** | Data Cleaning, Reshaping, Time-Series | [Link](https://www.oreilly.com/library/view/python-for-data/9781491957653/) |
-<<<<<<< HEAD
-| **Mode SQL Tutorial** | Joins, window functions, query optimization | [Link](https://mode.com/sql-tutorial/),[freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql) |
-| **FastAPI Tutorial** | Building production APIs for data services | [Link](https://fastapi.tiangolo.com/tutorial/) |
+| **SQL** | Joins, window functions, query optimization | [freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) [Notes](https://github.com/beingAnujChaudhary/personalNotes/tree/main/notebooks/5.%20sql/kaggleSQL), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql) | **FastAPI Tutorial** | Building production APIs for data services | [Link](https://fastapi.tiangolo.com/tutorial/) |
 | **Git & GitHub** | Version control, collaboration, CI/CD basics | [Link](https://skills.github.com/) |
-=======
-| **Mode SQL Tutorial** | Joins, window functions, query optimization | [Link](https://mode.com/sql-tutorial/),[freeCodeCamp Relational Databases Certification](https://www.freecodecamp.org/learn/relational-databases-v9/), [Kaggle Intro to SQL](https://www.kaggle.com/learn/intro-to-sql) [Notes](https://github.com/beingAnujChaudhary/personalNotes/tree/main/notebooks/5.%20sql/kaggleSQL), [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql) |
->>>>>>> ec552b1949145307fd779ef988ceacc65b79b1f9
+
 
 ### 💻 Projects
 #### 💻 Project 0.1: Automated Scraper & EDA Dashboard (Core)
