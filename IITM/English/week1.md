@@ -66,6 +66,12 @@
 
 ### How to Learn Figures of Speech?
 
+Learning figures of speech is about **accommodation and absorption**, not simple addition (n+1). The best way to learn them is:
+- Pay attention to how others use them
+- Notice them in written and spoken language
+- Practice using them in your own speech
+- Don't memorize lists - absorb them naturally from context
+
 ```mermaid
 graph TD
     A[Learning Approach] --> B[Accommodation<br/>Not Addition]
@@ -87,13 +93,34 @@ graph TD
 
 > **Key Insight:** Learning is NOT n+1 (addition). It's accommodation - absorbing new patterns into existing knowledge structures.
 
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF6B6B', 'primaryTextColor': '#fff', 'primaryBorderColor': '#FF6B6B', 'lineColor': '#FECA57', 'secondaryColor': '#48DBFB', 'tertiaryColor': '#FF9FF3'}}}%%
+flowchart LR
+    subgraph Figures["Figures of Speech"]
+        A[Simile] --> A1[Like/As comparison]
+        B[Metaphor] --> B1[Direct comparison]
+        C[Personification] --> C1[Human attributes]
+        D[Paradox] --> D1[Contradictory truth]
+        E[Oxymoron] --> E1[Opposite words]
+        F[Antithesis] --> F1[Opposite ideas]
+        G[Alliteration] --> G1[Repeated sounds]
+    end
+    
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#48DBFB,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#FF9FF3,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#FECA57,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#A29BFE,stroke:#333,stroke-width:2px,color:#fff
+    style F fill:#55EFC4,stroke:#333,stroke-width:2px,color:#fff
+    style G fill:#FD79A8,stroke:#333,stroke-width:2px,color:#fff
+```
 ---
 
 ## 1. Simile
 
 ### What is Simile?
 
-A comparison between two **unlike** things using **"like"** or **"as"** .
+A comparison between two **unlike** things using **"like"** or **"as"** . Similes are so common that we often use them without realizing - "busy as a bee," "brave as a lion," "cool as a cucumber."
 
 ```mermaid
 graph LR
@@ -139,6 +166,10 @@ graph LR
 ### What is Metaphor?
 
 A **direct comparison** where a word or phrase is applied to something it doesn't literally describe, suggesting likeness without using "like" or "as."
+
+**Why**: Creates powerful, compact imagery without using "like" or "as"
+
+**How**: State that one thing IS another thing
 
 ```mermaid
 graph TB
@@ -193,9 +224,9 @@ graph LR
 | "This is the icing on the cake" | Actual cake decoration | The best part of something already good |
 | "Silence is golden" | Metal value | Being quiet has great worth |
 | "Life is a roller coaster" | Amusement ride | Life has highs and lows |
-| "All the world's a stage" | Theatre platform | Everyone plays roles in life |
+| "All the world's a stage. All men and women merely **players**" | Theatre platform | Everyone plays roles in life |
 
-> 🎭 **Fun Fact:** The word "metaphor" itself is a metaphor! It comes from Greek "metapherein" meaning "to transfer" or "to carry over."
+> 🎭 **Fun Fact:** The word "metaphor" itself is a metaphor! It comes from Greek "metapherein" meaning "to carry across" - it carries meaning from one thing to another.
 
 ---
 
@@ -241,11 +272,12 @@ graph TB
 
 | Example | What's Personified | Human Quality Given |
 |---------|-------------------|---------------------|
-| "Books are my favorite companions" | Books | Friendship, companionship |
-| "The stars winked at us from the distant black sky" | Stars | Playful winking |
+| "Books are my favorite **companions**" | Books | Friendship, companionship |
+| "The stars **winked** at us from the distant black sky" | Stars | Playful winking (human action) |
 | "The moon affects her as it does a woman" | Moon | Feminine influence (Hemingway) |
+|"The old man always though of her as feminie."|In Ernest Hemingway's "The Old Man and the Sea," the sea itself is personified as feminine - sometimes giving, sometimes withholding, much like a woman.|This technique is called "anthropomorphism."|
 
-> 📚 **Fun Fact:** In Ernest Hemingway's "The Old Man and the Sea," the sea itself is personified as feminine - sometimes giving, sometimes withholding, much like a woman. This technique is called "anthropomorphism."
+> 📚 **Fun Fact:**  Personification is one of the most common devices in advertising - "M&M's melt in your mouth, not in your hands" (giving chocolate human-like behavior).
 
 ---
 
@@ -254,6 +286,14 @@ graph TB
 ### What is Paradox?
 
 A statement that appears **self-contradictory** but contains a **deeper truth** upon reflection.
+**Why**: Makes writing thought-provoking and intellectually engaging
+
+**How**: Present two conflicting ideas that together reveal a truth
+
+**Features of Paradox**:
+- True but sounds impossible or conflicting
+- Contains two contrasting facts
+- Used as thought-provoking elements in literature
 
 ```mermaid
 graph TB
@@ -294,7 +334,7 @@ graph TB
 | "All animals are equal, but some are more equal than others" | George Orwell | Satire on political hypocrisy |
 | "I must be cruel to be kind" | Shakespeare (Hamlet) | Short-term pain for long-term good |
 
-> 🤔 **Fun Fact:** The famous "liar paradox" - "This statement is false" - has puzzled philosophers for over 2,000 years! If it's true, it's false; if it's false, it's true.
+> 🤔 **Fun Fact:** The famous "liar paradox" - "This statement is false" - has puzzled philosophers for over 2,000 years! If it's true, it's false; if it's false, it's true. Paradoxes were heavily used by Zen masters to help students achieve enlightenment by breaking conventional thinking.
 
 ---
 
@@ -302,7 +342,11 @@ graph TB
 
 ### What is Oxymoron?
 
-A figure of speech combining **two contradictory words** for dramatic effect.
+A figure of speech combining **two contradictory words** placed together for dramatic effect.
+
+**Why**: Expresses conflicting thoughts or complex ideas concisely
+
+**How**: Combine two opposite words
 
 ```mermaid
 graph LR
@@ -345,6 +389,10 @@ graph LR
 ### What is Antithesis?
 
 Two **opposing ideas** placed in a **parallel grammatical structure** for contrast and rhythm.
+
+**Why**: Creates rhythmic, memorable statements through contrast
+
+**How**: Use opposite ideas in parallel grammatical form
 
 ```mermaid
 graph TB
@@ -395,7 +443,7 @@ graph LR
 | "Man proposes, God disposes" | Human plans vs. divine will |
 | "To err is human, to forgive divine" | Human weakness vs. divine quality |
 
-> ⚖️ **Fun Fact:** John F. Kennedy's famous "Ask not what your country can do for you, ask what you can do for your country" is a perfect example of antithesis that changed American political rhetoric forever!
+> ⚖️ **Fun Fact:** John F. Kennedy's famous "Ask not what your country can do for you, ask what you can do for your country" is a perfect example of antithesis that changed American political rhetoric forever!  Martin Luther King Jr.'s "I Have a Dream" speech is famous for its use of antithesis - "I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character."
 
 ---
 
@@ -404,6 +452,10 @@ graph LR
 ### What is Alliteration?
 
 The **repetition of initial sounds** in adjacent or closely connected words.
+
+**Why**: Creates rhythm, musicality, and makes phrases memorable
+
+**How**: Use same sound at the beginning of multiple words
 
 ```mermaid
 graph TB
@@ -429,14 +481,13 @@ graph TB
 ```
 
 ### Examples
+- "**B**etty **b**aked **b**uns **b**eside **b**acons"
+- "**T**ik**t**ok" → "T" sound repeated
+- "**C**oca-**C**ola" → "C" sound repeated
+- "**P**ay**P**al" → "P" sound repeated
+- "**P**e**pp**a **P**ig" → "P" sound repeated
+- "**K**it**K**at" → "K" sound repeated
 
-| Example | Repeated Sound |
-|---------|----------------|
-| "Betty baked buns besides Bakers" | /b/ |
-| Coca-Cola | /k/ |
-| PayPal | /p/ |
-| Peppa Pig | /p/ |
-| KitKat | /k/ |
 
 > 🎵 **Fun Fact:** Many brand names use alliteration because it makes them easier to remember - Dunkin' Donuts, Best Buy, Krispy Kreme, and even Marvel characters like Peter Parker, Bruce Banner, and Reed Richards!
 
@@ -491,6 +542,10 @@ graph TB
 
 A situation where the **actual outcome** is the **opposite** of what was expected.
 
+**Why**: Creates humorous or sad effects, adds depth to expression
+
+**How**: Present situations where outcomes contradict expectations
+
 ```mermaid
 graph TB
     A[Irony] --> B[Expectation vs Reality]
@@ -532,7 +587,11 @@ graph TB
 
 ### What is Pun?
 
-A play on words that have **multiple meanings** or **similar sounds** but different meanings.
+A play on words that have **multiple meanings** or **similar sounds** but different meanings. Puns are considered the "lowest form of humor" but also the highest form of wit - they require linguistic intelligence to create and understand!
+
+**Why**: Creates humor, wit, and multiple layers of meaning
+
+**How**: Use words with double meanings in a clever way
 
 ```mermaid
 graph TB
@@ -559,7 +618,9 @@ graph TB
 
 ### Example
 
-"Can February March? No, but April May."
+- "Can **February March**? No, but **April May**"
+- "I used to be a baker, but I couldn't make enough dough"
+- "Time flies like an arrow; fruit flies like a banana"
 
 | Word | Meaning 1 | Meaning 2 |
 |------|-----------|------------|
@@ -567,7 +628,7 @@ graph TB
 | April | Month | (Part of name) |
 | May | Month | Expressing possibility |
 
-> 😄 **Fun Fact:** Shakespeare was a master of puns, using over 3,000 of them in his plays! He even made puns in tragic scenes - like Mercutio's dying words in Romeo and Juliet: "Ask for me tomorrow and you shall find me a grave man."
+> 😄 **Fun Fact:** Shakespeare was a master of puns, using over 3,000 of them in his plays! He even made puns in tragic scenes - like Mercutio's dying words in Romeo and Juliet: "Ask for me tomorrow and you shall find me a grave man." 
 
 ---
 
@@ -576,6 +637,10 @@ graph TB
 ### What is Juxtaposition?
 
 Placing **two contrasting ideas** side by side to highlight their differences or similarities.
+
+**Why**: Highlights differences or similarities, creates contrast
+
+**How**: Place opposite concepts side by side
 
 ```mermaid
 graph LR
@@ -599,7 +664,7 @@ graph LR
 |---------------|----------|
 | "All is fair in love and war" | Love (peace) vs. War (conflict) |
 | "A living dead person" | Living vs. Dead |
-
+|"It was the best of times, it was the worst of times"| |
 ### Related Concepts
 
 ```mermaid
@@ -615,7 +680,22 @@ graph TB
     style D fill:#F39C12,color:#000
     style E fill:#F39C12,color:#000
 ```
-
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF6B6B', 'primaryTextColor': '#fff', 'primaryBorderColor': '#FF6B6B', 'lineColor': '#FECA57', 'secondaryColor': '#48DBFB', 'tertiaryColor': '#FF9FF3'}}}%%
+graph LR
+    A[Juxtaposition] --> B[Antithesis]
+    A --> C[Oxymoron]
+    A --> D[Paradox]
+    
+    B --> B1[Parallel structure]
+    C --> C1[Two words only]
+    D --> D1[Statement level]
+    
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#48DBFB,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#FF9FF3,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#FECA57,stroke:#333,stroke-width:2px,color:#fff
+```
 ---
 
 ## 5. Synecdoche
@@ -623,6 +703,11 @@ graph TB
 ### What is Synecdoche?
 
 A figure of speech where a **part** represents the **whole** or the **whole** represents a **part**.
+
+
+**Why**: Creates concise, powerful references
+
+**How**: Use part for whole or whole for part
 
 ```mermaid
 graph TB
@@ -653,6 +738,7 @@ graph TB
 | "He fell asleep on the wheels" | Wheels (part) → Car (whole) | Fell asleep while driving |
 | "Can we have a headcount?" | Head (part) → Person (whole) | Count the number of people |
 | "The police arrived" | Police (whole) → Some officers (part) | Some police officers came |
+|"Lend me your **ears**||Ears represent attention.|
 
 > 🚗 **Fun Fact:** When we say "nice wheels" to compliment a car, we're using synecdoche. Similarly, calling businessmen "suits" or calling manual laborers "hands" are all examples of this figure of speech!
 
@@ -663,6 +749,10 @@ graph TB
 ### What is Anaphora?
 
 The **repetition of a word or phrase** at the **beginning** of successive clauses or sentences.
+
+**Why**: Creates rhythm, emphasis, and powerful rhetorical effect
+
+**How**: Repeat the same word/phrase at start of successive clauses
 
 ```mermaid
 graph TB
@@ -692,7 +782,7 @@ graph TB
 | Example | Repeated Word | Context |
 |---------|---------------|---------|
 | "Stay home, stay safe" | "Stay" | Public health slogan |
-| "And...and...and..." | "And" | T.S. Eliot's "The Waste Land" |
+| "**And** a woman drew her long black hair... **and** fiddled whisper music... **and** bats with baby faces..." "And" | T.S. Eliot's "The Waste Land" |
 
 ### Anaphora vs Alliteration
 
@@ -701,6 +791,7 @@ graph TB
 | What repeats | Whole word/phrase | Single sound |
 | Position | Beginning of clauses | Beginning of words |
 | Example | "We shall fight... we shall fight..." | "Peter Piper picked..." |
+|Level|Lexical Level|Phonetic Level|
 
 > 🎤 **Fun Fact:** Martin Luther King Jr.'s "I Have a Dream" speech is one of the most famous examples of anaphora, repeating "I have a dream" eight times and "Let freedom ring" ten times!
 
@@ -711,6 +802,10 @@ graph TB
 ### What is Metonymy?
 
 Using the **name of one thing** to refer to something **closely associated** with it.
+
+**Why**: Creates concise, vivid references
+
+**How**: Use a related term to refer to something else
 
 ```mermaid
 graph TB
@@ -739,10 +834,10 @@ graph TB
 
 | Metonymy | Literal Meaning | Actual Reference |
 |----------|-----------------|------------------|
-| "The White House wished Diwali" | The building wished | The President/Administration |
-| "Delhi has to decide" | The city decides | The Central Government |
-| "The Kiwis played well" | The bird played | New Zealand cricket team |
-| "Kangaroos won" | The animal won | Australian team |
+| "The **White House** wished Diwali" | The building wished | The President/Administration |
+| "**Delhi** has to decide" | The city decides | The Central Government |
+| "The **Kiwis** played well" | The bird played | New Zealand cricket team |
+| "**Kangaroos** won" | The animal won | Australian team |
 
 > 🏛️ **Fun Fact:** In journalism, metonymy is extremely common. "The Pentagon" refers to the US Department of Defense, "Wall Street" means the financial industry, and "Hollywood" stands for the American film industry!
 
@@ -753,6 +848,10 @@ graph TB
 ### What is Litotes?
 
 Using a **negative statement** to express something **positive** (understatement through negation).
+
+**Why**: Creates emphasis through understatement
+
+**How**: Negate the opposite of what you want to say
 
 ```mermaid
 graph LR
@@ -781,9 +880,9 @@ graph LR
 
 | Litotes | Actual Meaning |
 |---------|----------------|
-| "Not bad" | Good |
-| "Not without truth" | Has some truth |
-| "Filthy rich" | Extremely rich |
+| "**Not bad**" | Good |
+| "What he said is **not without truth**"  | Has some truth |
+| "**Filthy rich**" | Extremely rich |
 | "He's no fool" | He's intelligent |
 
 > 🗣️ **Fun Fact:** The British are famous for using litotes in everyday speech. "Not too shabby" means excellent, and "I wouldn't say no" means "Yes, please!"
@@ -795,6 +894,10 @@ graph LR
 ### What is Hyperbole?
 
 **Deliberate exaggeration** for emphasis or effect, not meant to be taken literally.
+
+**Why**: Creates emphasis, humor, and impact
+
+**How**: Exaggerate beyond reality
 
 ```mermaid
 graph TB
@@ -823,12 +926,12 @@ graph TB
 
 | Hyperbole | Literal Meaning |
 |-----------|-----------------|
-| "I've been waiting forever" | Waiting a very long time |
-| "You speak so sweet, I'll get a cavity" | Your speech is very sweet/flattering |
-| "It's raining cats and dogs" | It's raining heavily |
-| "I'm so hungry I could eat a horse" | I'm extremely hungry |
+| "I have been waiting **forever** for him to say yes" | Waiting a very long time |
+| "You speak so sweet, I'll get a **cavity**" | Your speech is very sweet/flattering |
+| "It's raining **cats and dogs**" | It's raining heavily |
+| "I'm so hungry I could **eat a horse**" | I'm extremely hungry |
 
-> 😂 **Fun Fact:** The phrase "raining cats and dogs" might come from old English streets where heavy rain would wash dead animals through the streets. Thankfully, it's now just a colorful exaggeration!
+> 😂 **Fun Fact:** The phrase "raining cats and dogs" might come from old English streets where heavy rain would wash dead animals through the streets. Thankfully, it's now just a colorful exaggeration! Hyperbole is the basis of many comedy routines - Jerry Seinfeld often uses hyperbole: "I'm not comfortable with people who know where their meat comes from!"
 
 ---
 
@@ -837,6 +940,11 @@ graph TB
 ### What is Euphemism?
 
 Using **mild or indirect words** to express something **unpleasant, taboo, or embarrassing**.
+
+
+**Why**: Makes uncomfortable topics more acceptable
+
+**How**: Substitute harsh terms with gentler ones
 
 ```mermaid
 graph TB
@@ -911,7 +1019,7 @@ graph TB
 
 ## What Are Discourse Markers?
 
-> **Discourse markers** are words or phrases that connect ideas, manage conversation flow, and add coherence to speech and writing.
+> Discourse markers are words, phrases, or expressions that help **connect ideas**, **organize speech**, and **guide listeners** through conversations. They are often called "fillers" but are actually very important for fluent communication.
 
 ```mermaid
 graph TB
@@ -1043,6 +1151,24 @@ graph LR
 
 > 📊 **Analysis:** Read the same conversation without the bold markers - it becomes abrupt, artificial, and loses the natural conversational flow. The markers make it sound like genuine human interaction.
 
+**At the beginning:**
+- "**So**, I bought a new car last week..."
+- "**Well**, honestly, it was a great experience..."
+- "**Anyway**, let's move on to the next point..."
+
+**In the middle:**
+- "It's a great movie, **you know**, with amazing special effects."
+- "I mean, it's not that difficult."
+- "**Actually**, I changed my mind."
+
+**At the end:**
+- "It was a decent seminar, **all in all**."
+- "**In a nutshell**, taxes may increase."
+- "**At the end of the day**, it's your choice."
+
+
+**Fun Fact**: Native English speakers use discourse markers in about 80% of their conversations. Without them, speech sounds robotic and unnatural!
+
 ---
 
 ## Key Insight
@@ -1070,31 +1196,39 @@ graph TB
 
 ---
 
-# Lecture 4: Rhythm & Pitch in English
-
-## What Are Rhythm and Pitch?
+# Lecture 4: Rhythm, Pitch & Prosody in English
 
 > **Prosodic features** (also called suprasegmental features) that exist beyond individual sounds and words, affecting how we convey meaning through speech.
 
+## What are These Features?
+
+These are **extra-linguistic/prosodic features** of speech that go beyond words to convey meaning through how we speak.
+
 ```mermaid
-graph TB
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF6B6B', 'primaryTextColor': '#fff', 'primaryBorderColor': '#FF6B6B', 'lineColor': '#FECA57', 'secondaryColor': '#48DBFB', 'tertiaryColor': '#FF9FF3'}}}%%
+graph TD
     A[Prosodic Features] --> B[Rhythm]
     A --> C[Pitch]
     A --> D[Stress]
-    A --> E[Tone]
-    A --> F[Intonation]
+    A --> E[Intonation]
     
-    B --> B1[Pattern of sounds<br/>and syllables]
-    C --> C1[Highness or lowness<br/>of voice]
+    B --> B1[Pattern of syllables]
+    B --> B2["Taal/Laya in music"]
     
-    style A fill:#E74C3C,color:#fff
-    style B fill:#FF6B6B,color:#fff
-    style C fill:#4ECDC4,color:#000
-    style D fill:#45B7D1,color:#000
-    style E fill:#96CEB4,color:#000
-    style F fill:#DDA0DD,color:#000
-    style B1 fill:#FFB3BA,color:#000
-    style C1 fill:#BAFFC9,color:#000
+    C --> C1[High/Low voice]
+    C --> C2[Frequency of vibration]
+    
+    D --> D1[Syllable prominence]
+    D --> D2[Word emphasis]
+    
+    E --> E1[Rising/Falling]
+    E --> E2[Melody of speech]
+    
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#48DBFB,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#FF9FF3,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#FECA57,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#A29BFE,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ---
@@ -1105,11 +1239,26 @@ graph TB
 
 > **Rhythm** is the pattern of stressed and unstressed syllables in speech, creating a flow similar to music or dance.
 
+**Why**: Makes speech natural, musical, and engaging
+
+**How**: Alternate between stressed (prominent) and unstressed syllables
+
+**Key Points**:
+- English is **stress-timed** (stressed syllables occur at regular intervals)
+- Similar to "taal" or "laya" in Indian music
+- Creates flow and prevents monotony
+- Machine speech lacks natural rhythm
+
+**Example**:
+- Without rhythm: "I thought your brother was a bus conductor" (monotonous)
+- With rhythm: "I **thought** your **brother** was a **bus** con**duc**tor" (natural)
+
+
 ```mermaid
 graph TB
     A[Rhythm] --> B[Meaning]
-    B --> C[Greek: "flow"]
-    B --> D[Hindi: "taal/laya"]
+    B --> C[Greek: flow]
+    B --> D[Hindi: taal/laya]
     
     A --> E[Found In]
     E --> F[Speech]
@@ -1187,6 +1336,10 @@ graph TB
 ### What is Pitch?
 
 > **Pitch** is the highness or lowness of voice, determined by the frequency of vocal cord vibration.
+
+**Why**: Conveys emotions and attitudes
+
+**How**: Control the frequency of vocal cord vibration
 
 ```mermaid
 graph TB
@@ -1342,6 +1495,27 @@ graph TB
     style I fill:#FFB3BA,color:#000
     style J fill:#FFB3BA,color:#000
 ```
+## Why is Intonation Important?
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF6B6B', 'primaryTextColor': '#fff', 'primaryBorderColor': '#FF6B6B', 'lineColor': '#FECA57', 'secondaryColor': '#48DBFB', 'tertiaryColor': '#FF9FF3'}}}%%
+graph TD
+    A[Intonation Functions] --> B[Identifies Sentence Type]
+    A --> C[Resolves Ambiguity]
+    A --> D[Conveys Attitude]
+    A --> E[Shows Emotion]
+    
+    B --> B1["Statement or Question?"]
+    C --> C2["Different meanings"]
+    D --> D3[Sarcasm, Shock, etc.]
+    E --> E4[Anger, Surprise, etc.]
+    
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#48DBFB,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#FF9FF3,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#FECA57,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#A29BFE,stroke:#333,stroke-width:2px,color:#fff
+```
 
 ---
 
@@ -1388,7 +1562,15 @@ graph TB
 
 ## How Intonation Changes Meaning
 
-Consider the question: **"Did you want to go home?"**
+Consider the question: **"Did you want to go home?"** 
+> **Same sentence, different meanings based on intonation:**
+| **Stressed Word** | **Meaning** |
+|-------------------|-------------|
+| "**Did** you want to go home?" | Emphasizing the action |
+| "Did **you** want to go home?" | Questioning the person |
+| "Did you **want** to go home?" | Questioning the desire |
+| "Did you want to **go** home?" | Questioning the action |
+| "Did you want to go **home**?" | Questioning the destination |
 
 ```mermaid
 graph TB
@@ -1709,7 +1891,37 @@ graph TB
 | **Tense fronting** | "I know what is your name" | Word order from L1 |
 | **Preposition stranding** | "To whom did you give it?" | Hypercorrection |
 | **Tag questions** | "It is beautiful, no?" | From "sundar hai na?" |
-
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FF6B6B', 'primaryTextColor': '#fff', 'primaryBorderColor': '#FF6B6B', 'lineColor': '#FECA57', 'secondaryColor': '#48DBFB', 'tertiaryColor': '#FF9FF3'}}}%%
+graph TD
+    A[Indian English Features] --> B[Reduplication]
+    A --> C[Retroflex Sounds]
+    A --> D[Article Misuse]
+    A --> E[Tense Fronting]
+    A --> F[Tag Questions]
+    A --> G[Preposition Stranding]
+    
+    B --> B1["slowly, slowly"]
+    B --> B2["very, very good"]
+    
+    C --> C1["table (vs. table)"]
+    
+    D --> D2["one fat man (vs. a fat man)"]
+    
+    E --> E2["I know what is your name"]
+    
+    F --> F2["It's good, no?"]
+    
+    G --> G2["To whom did you give?"]
+    
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#48DBFB,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#FF9FF3,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#FECA57,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#A29BFE,stroke:#333,stroke-width:2px,color:#fff
+    style F fill:#55EFC4,stroke:#333,stroke-width:2px,color:#fff
+    style G fill:#FD79A8,stroke:#333,stroke-width:2px,color:#fff
+```
 ---
 
 ## The Key Message
