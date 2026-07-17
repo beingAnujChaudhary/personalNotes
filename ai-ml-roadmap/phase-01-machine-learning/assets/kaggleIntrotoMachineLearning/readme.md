@@ -1,6 +1,6 @@
 # 📊 [Kaggle: Intro to Machine Learning](https://www.kaggle.com/learn/certification/beinganujchaudhary/intro-to-machine-learning)
 
-![image](https://github.com/beingAnujChaudhary/personalNotes/tree/main/ai-ml-roadmap/phase-01-machine-learning/assets/kaggleIntrotoMachineLearning/introtoMachineLearning.png)
+![Certificate](https://github.com/beingAnujChaudhary/personalNotes/blob/main/ai-ml-roadmap/phase-01-machine-learning/assets/kaggleIntrotoMachineLearning/introtoMachineLearning.png)
 
 
 ## A Comprehensive Guide to Building Predictive Models
