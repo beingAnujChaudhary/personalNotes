@@ -6,9 +6,13 @@
 # 🚀 The Production-Ready AI & ML Master Roadmap (Ultimate Hybrid Edition)
 
 > **Core Execution Philosophy: The 40/60 Rule**
+
 > Spend **40%** of your time consuming theory (courses, books, docs) and **60%** building aligned projects.
+
 > **The Loop:** Learn → Build → Break → Debug → Repeat.
+
 > **Rule #1:** Never watch a tutorial without coding along. Never copy-paste without typing it out manually to build muscle memory.
+
 > **Rule #2: Consistency Over Hoarding.** It is better to complete one course and build one project consistently than to bookmark 50 resources and never implement them. Projects > Certificates.
 
 ---
