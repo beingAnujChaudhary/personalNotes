@@ -1715,7 +1715,39 @@ flowchart TD
     class E,F compare;
     class G answer;
 ```
+Alternate approach:
 
+### The Full Long Division Layout
+
+$$x^2 - p \quad\overline{\Big|\quad 3x^4 - 8x^3 + 16x^2 + 0x - 10}$$
+
+$$3x^2 - 8x + (16 + 3p)$$
+
+$$x^2 - p \quad\overline{\Big|\quad 3x^4 - 8x^3 + 16x^2 + 0x - 10}$$
+
+$$\underline{-(3x^4 + 0x^3 - 3px^2 + 0x + 0)}$$
+
+$$-8x^3 + (16 + 3p)x^2 + 0x - 10$$
+
+$$\underline{-(-8x^3 + 0x^2 + 8px + 0)}$$
+
+$$(16 + 3p)x^2 - 8px - 10$$
+
+$$\underline{-[(16 + 3p)x^2 + 0x - 16p - 3p^2]}$$
+
+$$-8px + (-10 + 16p + 3p^2)$$
+
+### Remainder:
+
+$$\boxed{-8px + (-10 + 16p + 3p^2)}$$
+
+Compare with $-8x - c$:
+
+$$-8p = -8 \implies p = 1$$
+
+$$-10 + 16p + 3p^2 = -c \implies c = -9$$
+
+$$\boxed{p = 1,\quad c = -9}$$
 ---
 
 ## Question 3 - Making a Polynomial Divisible
