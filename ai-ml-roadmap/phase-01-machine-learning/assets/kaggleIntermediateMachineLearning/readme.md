@@ -397,7 +397,7 @@ graph LR
 
 ### 🧮 Formulas
 The prediction of the ensemble at step $m$ is:
-$$ F_m(x) = F_{m-1}(x) + \gamma \cdot h_m(x) $$
+$$F_m(x) = F_{m-1}(x) + \gamma \cdot h_m(x)$$
 Where:
 * $F_{m-1}(x)$ is the prediction from the previous ensemble.
 * $\gamma$ is the **learning rate** (shrinkage).
