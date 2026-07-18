@@ -385,14 +385,15 @@ graph LR
     E -->|No| B
     E -->|Yes| F[Final Prediction]
     
-    classDef step fill:#a29bfe,stroke:#6c5ce7,stroke-width:2px,color:#fff;
-    classDef loop fill:#fdcb6e,stroke:#e17055,stroke-width:2px,color:#2d3436;
-    classDef end fill:#55efc4,stroke:#00b894,stroke-width:3px,color:#2d3436;
+    classDef step fill:#a29bfe,stroke:#6c5ce7,stroke-width:2px,color:#fff
+    classDef loop fill:#fdcb6e,stroke:#e17055,stroke-width:2px,color:#2d3436
+    classDef endNode fill:#55efc4,stroke:#00b894,stroke-width:3px,color:#2d3436
     
-    class A,B,C,D step;
-    class E loop;
-    class F end;
+    class A,B,C,D step
+    class E loop
+    class F endNode
 ```
+
 
 ### 🧮 Formulas
 The prediction of the ensemble at step $m$ is:
