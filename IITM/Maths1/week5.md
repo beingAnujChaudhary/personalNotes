@@ -725,6 +725,30 @@ Starting from $y=e^t$:
 3. Add $50$: shift upward by 50.
 4. The horizontal asymptote becomes $y=50$.
 
+## 4.6 Images
+
+<table>
+  <tr>
+    <th align="center">2<sup>x</sup></th>
+    <th align="center">3<sup>x</sup></th>
+    <th align="center">5<sup>x</sup></th>
+  </tr>
+  <tr>
+    <td><img src="W5images/2ToThePowerX.png" width="250" alt="2^x"></td>
+    <td><img src="W5images/3ToThePowerX.png" width="250" alt="3^x"></td>
+    <td><img src="W5images/5ToThePowerX.png" width="250" alt="5^x"></td>
+  </tr>
+  <tr>
+    <th align="center">(1/2)<sup>x</sup></th>
+    <th align="center">(1/3)<sup>x</sup></th>
+    <th align="center">(1/5)<sup>x</sup></th>
+  </tr>
+  <tr>
+    <td><img src="W5images/1upon2ToThePowerX.png" width="250" alt="1/2^x"></td>
+    <td><img src="W5images/1upon3ToThePowerX.png" width="250" alt="1/3^x"></td>
+    <td><img src="W5images/1upon5ToThePowerX.png" width="250" alt="1/5^x"></td>
+  </tr>
+</table>
 ---
 
 # 5. The natural exponential function
