@@ -512,19 +512,46 @@ Therefore, different inputs produce different outputs, and $f$ is one-to-one.
 
 ## 2.7 Increasing and decreasing functions
 
+A **monotonic function** is a mathematical function that preserves a given order, meaning it is entirely non-decreasing or entirely non-increasing across its domain. It never changes direction, so it either constantly climbs, stays flat, or constantly drops.
+
 A function is **strictly increasing** if
 
 $$
-x_1<x_2\implies f(x_1)<f(x_2).
+x_1 < x_2 \implies f(x_1) < f(x_2)
 $$
 
 A function is **strictly decreasing** if
 
 $$
-x_1<x_2\implies f(x_1)>f(x_2).
+x_1 < x_2 \implies f(x_1) > f(x_2)
 $$
 
 Every strictly increasing or strictly decreasing function is one-to-one.
+
+```mermaid
+graph TD
+    A[Monotonic Functions] --> B[Increasing]
+    A --> C[Decreasing]
+    
+    B --> D[Strictly Increasing]
+    B --> E[Non-decreasing]
+    
+    C --> F[Strictly Decreasing]
+    C --> G[Non-increasing]
+    
+    D --> H[x₁ < x₂ ⇒ f(x₁) < f(x₂)]
+    E --> I[x₁ < x₂ ⇒ f(x₁) ≤ f(x₂)]
+    F --> J[x₁ < x₂ ⇒ f(x₁) > f(x₂)]
+    G --> K[x₁ < x₂ ⇒ f(x₁) ≥ f(x₂)]
+    
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style C fill:#ffa94d,stroke:#e8590c,color:#000
+    style D fill:#4dabf7,stroke:#1864ab,color:#fff
+    style E fill:#fcc419,stroke:#e67700,color:#000
+    style F fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style G fill:#fcc419,stroke:#e67700,color:#000
+```
 
 ### Proof for a strictly increasing function
 
@@ -541,6 +568,27 @@ x_1=x_2.
 $$
 
 Therefore, $f$ is one-to-one.
+
+```mermaid
+graph TD
+    A[Calculate f' x] --> B{f' x > 0?}
+    B -->|Yes| C[Strictly Increasing<br/>✅ One-to-One]
+    B -->|No| D{f' x < 0?}
+    D -->|Yes| E[Strictly Decreasing<br/>✅ One-to-One]
+    D -->|No| F{f' x = 0?}
+    F -->|Always| G[Constant Function<br/>❌ Not One-to-One]
+    F -->|Sometimes| H[Not Monotonic<br/>Check Other Methods]
+    
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#fcc419,stroke:#e67700,color:#000
+    style D fill:#fcc419,stroke:#e67700,color:#000
+    style F fill:#fcc419,stroke:#e67700,color:#000
+    style C fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style E fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style G fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style H fill:#ffa94d,stroke:#e8590c,color:#000
+```
+
 ---
 | Function | Graph | One-to-One? | Reason |
 |----------|-------|-------------|--------|
