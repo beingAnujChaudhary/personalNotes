@@ -842,7 +842,7 @@ Since both classes are strictly monotonic, every exponential function is one-to-
 
 ---
 
-# 4. Graphing exponential functions
+# 4. [Graphing exponential functions](https://youtu.be/J83L0d_BIEI?si=t5i8X3j-faL9irrR)
 
 ## 4.1 Universal properties of $f(x)=a^x$
 
