@@ -66,7 +66,11 @@ flowchart LR
 
 ## 1.1 What is a function?
 
-A **function** is a relation that maps every element from a **domain** (set A) to exactly one element in a **codomain** (set B). 
+A relation from set `A` (domain) to set `B` (codomain) is a **function ONLY if**:
+
+> **Rule 1:** Every element of the domain **must** have an output. (No element left without an arrow.)
+> **Rule 2:** Every element of the domain has **exactly one** output. (No element can shoot two arrows.)
+**Crucial point:** It **IS allowed** for multiple inputs to share the same output. It is **NOT allowed** for one input to give multiple outputs.
 
 If a function maps a set $A$ to a set $B$, we write
 
@@ -81,9 +85,21 @@ Here:
 - For an input $x\in A$, the output is $f(x)\in B$.
 - The collection of outputs actually produced is the **range** or **image** of $f$.
 
-The defining rule is:
+### Example
 
-> Every input in the domain must have exactly one output.
+Let
+
+$$
+f(x)=x^2.
+$$
+
+Then:
+
+- $f(2)=4$
+- $f(-2)=4$
+- $f(3)=9$
+
+This is a function because every input has only one output. The fact that two different inputs can produce the same output does **not** stop it from being a function.
 
 A useful mental model is a machine:
 
@@ -101,21 +117,205 @@ flowchart LR
     class Y output;
 ```
 
-### Example
+It gives us **4 main cases** 👇
 
-Let
 
-$$
-f(x)=x^2.
-$$
+---
 
-Then:
+# Case 1: One-to-One (Injective) ✔ — Valid Function
 
-- $f(2)=4$
-- $f(-2)=4$
-- $f(3)=9$
+Each input goes to a **different** output. No sharing.
 
-This is a function because every input has only one output. The fact that two different inputs can produce the same output does **not** stop it from being a function.
+- `1 → a`, `2 → b`, `3 → c`
+- Example: `f(x) = 2x + 1`
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+✅ Valid function **and** one-to-one.
+
+---
+
+# Case 2: Many-to-One ✔ — Still a Valid Function (but NOT one-to-one)
+
+**Multiple inputs → the SAME single output.** This is the case you asked about: *"single output has multiple inputs."*
+
+- `−2 → 4`, `2 → 4`, `3 → 9` (two different inputs land on `4`)
+- Example: `f(x) = x²` because `f(2) = 4` and `f(−2) = 4`
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1(("-2"))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((4))
+        b2((9))
+    end
+    a1 --> b1
+    a2 --> b1
+    a3 --> b2
+```
+✅ **Still a valid function** (each input has exactly one output).
+❌ But it is **not one-to-one**, because output `4` comes from two inputs.
+
+> **This is why the horizontal line test works:** a horizontal line at `y = 4` hits the graph twice → many-to-one → not one-to-one.
+
+---
+
+# Case 3: One-to-Many ✘ — NOT a Function
+
+**One input → multiple outputs.** This is the case you asked about: *"single input has multiple outputs."*
+
+- `1 → a` **and** `1 → b` (input `1` gives two different outputs)
+- Example: the relation `x = y²`. For `x = 4`, we get `y = 2` **and** `y = −2`. One input → two outputs.
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a1 --> b2
+    a2 --> b3
+    style a1 stroke:#f00,stroke-width:3px
+```
+❌ **NOT a function** — input `1` (red) violates Rule 2 by having two arrows.
+
+> **This is why the vertical line test works:** a vertical line at that `x` would hit the graph twice → one-to-many → not a function.
+
+---
+
+# Case 4: Some Input Has NO Output ✘ — NOT a Function
+
+Every element of the domain **must** be used. If even one is left out, it's not a function (from that domain).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+    end
+    a1 --> b1
+    a2 --> b2
+    style a3 stroke:#f00,stroke-width:3px,stroke-dasharray: 5 5
+```
+❌ **NOT a function** — input `3` (red, dashed) has no output, violating Rule 1.
+
+---
+
+# Bonus: Onto (Surjective) vs Into
+
+This is about the **codomain**, not about one-to-many.
+
+### Onto (Surjective) ✔
+**Every** element of the codomain is hit by at least one arrow. Range = Codomain.
+- Example: `f : ℝ → ℝ, f(x) = x³` (every real number is reached).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B (all hit)"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+
+### Into (NOT Onto)
+At least one element of the codomain is **never** hit. Range ⊊ Codomain.
+- Example: `f : ℝ → ℝ, f(x) = x²` (negative numbers are never reached).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    style b3 stroke:#f00,stroke-width:3px,stroke-dasharray: 5 5
+```
+Here `c` (red) is in the codomain but never reached → **into**, not onto.
+
+---
+
+# Bijective = One-to-One AND Onto
+
+Every input maps to a unique output **and** every codomain element is hit. Only bijective functions have a proper inverse function.
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+✔ One-to-one (no shared output) **and** onto (nothing left in B).
+
+---
+
+# Master Comparison Table
+
+| Case | Description | Example | Function? | One-to-One? |
+|---|---|---|---|---|
+| One-to-One | each input → unique output | `f(x)=2x+1` | ✅ Yes | ✅ Yes |
+| Many-to-One | many inputs → same output | `f(x)=x²` | ✅ Yes | ❌ No |
+| One-to-Many | one input → many outputs | `x=y²` | ❌ No | — |
+| Input with no output | some input unused | partial mapping | ❌ No | — |
+| Onto | all codomain hit | `f(x)=x³` on ℝ | ✅ Yes | depends |
+| Bijective | 1-1 + onto | `f(x)=x³` | ✅ Yes | ✅ Yes |
+
+---
+
+
 
 ---
 
