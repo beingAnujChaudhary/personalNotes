@@ -784,7 +784,7 @@ $$
 a>0\quad\text{and}\quad a\ne1.
 $$
 
-The constant $a$ is the **base**, and the variable $x$ is the **exponent**.
+The **constant** $a$ is the **base**, and the **variable** $x$ is the **exponent**.
 
 ### Why must $a>0$?
 
@@ -814,7 +814,7 @@ $$
 0^{-1}=\frac10,
 $$
 
-which is undefined. Also, $0^0$ is not assigned the ordinary exponent-law value in this setting.
+which is undefined. Also, $0^0$ is not assigned the ordinary exponent-law value in this setting. Also, **$0^0$ is undefined**.
 
 ---
 
