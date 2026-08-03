@@ -66,7 +66,11 @@ flowchart LR
 
 ## 1.1 What is a function?
 
-A **function** is a relation that maps every element from a **domain** (set A) to exactly one element in a **codomain** (set B). 
+A relation from set `A` (domain) to set `B` (codomain) is a **function ONLY if**:
+
+> **Rule 1:** Every element of the domain **must** have an output. (No element left without an arrow.)
+> **Rule 2:** Every element of the domain has **exactly one** output. (No element can shoot two arrows.)
+**Crucial point:** It **IS allowed** for multiple inputs to share the same output. It is **NOT allowed** for one input to give multiple outputs.
 
 If a function maps a set $A$ to a set $B$, we write
 
@@ -81,9 +85,21 @@ Here:
 - For an input $x\in A$, the output is $f(x)\in B$.
 - The collection of outputs actually produced is the **range** or **image** of $f$.
 
-The defining rule is:
+### Example
 
-> Every input in the domain must have exactly one output.
+Let
+
+$$
+f(x)=x^2.
+$$
+
+Then:
+
+- $f(2)=4$
+- $f(-2)=4$
+- $f(3)=9$
+
+This is a function because every input has only one output. The fact that two different inputs can produce the same output does **not** stop it from being a function.
 
 A useful mental model is a machine:
 
@@ -101,21 +117,205 @@ flowchart LR
     class Y output;
 ```
 
-### Example
+It gives us **4 main cases** 👇
 
-Let
 
-$$
-f(x)=x^2.
-$$
+---
 
-Then:
+# Case 1: One-to-One (Injective) ✔ — Valid Function
 
-- $f(2)=4$
-- $f(-2)=4$
-- $f(3)=9$
+Each input goes to a **different** output. No sharing.
 
-This is a function because every input has only one output. The fact that two different inputs can produce the same output does **not** stop it from being a function.
+- `1 → a`, `2 → b`, `3 → c`
+- Example: `f(x) = 2x + 1`
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+✅ Valid function **and** one-to-one.
+
+---
+
+# Case 2: Many-to-One ✔ — Still a Valid Function (but NOT one-to-one)
+
+**Multiple inputs → the SAME single output.** This is the case you asked about: *"single output has multiple inputs."*
+
+- `−2 → 4`, `2 → 4`, `3 → 9` (two different inputs land on `4`)
+- Example: `f(x) = x²` because `f(2) = 4` and `f(−2) = 4`
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1(("-2"))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((4))
+        b2((9))
+    end
+    a1 --> b1
+    a2 --> b1
+    a3 --> b2
+```
+✅ **Still a valid function** (each input has exactly one output).
+❌ But it is **not one-to-one**, because output `4` comes from two inputs.
+
+> **This is why the horizontal line test works:** a horizontal line at `y = 4` hits the graph twice → many-to-one → not one-to-one.
+
+---
+
+# Case 3: One-to-Many ✘ — NOT a Function
+
+**One input → multiple outputs.** This is the case you asked about: *"single input has multiple outputs."*
+
+- `1 → a` **and** `1 → b` (input `1` gives two different outputs)
+- Example: the relation `x = y²`. For `x = 4`, we get `y = 2` **and** `y = −2`. One input → two outputs.
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a1 --> b2
+    a2 --> b3
+    style a1 stroke:#f00,stroke-width:3px
+```
+❌ **NOT a function** — input `1` (red) violates Rule 2 by having two arrows.
+
+> **This is why the vertical line test works:** a vertical line at that `x` would hit the graph twice → one-to-many → not a function.
+
+---
+
+# Case 4: Some Input Has NO Output ✘ — NOT a Function
+
+Every element of the domain **must** be used. If even one is left out, it's not a function (from that domain).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+    end
+    a1 --> b1
+    a2 --> b2
+    style a3 stroke:#f00,stroke-width:3px,stroke-dasharray: 5 5
+```
+❌ **NOT a function** — input `3` (red, dashed) has no output, violating Rule 1.
+
+---
+
+# Bonus: Onto (Surjective) vs Into
+
+This is about the **codomain**, not about one-to-many.
+
+### Onto (Surjective) ✔
+**Every** element of the codomain is hit by at least one arrow. Range = Codomain.
+- Example: `f : ℝ → ℝ, f(x) = x³` (every real number is reached).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B (all hit)"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+
+### Into (NOT Onto)
+At least one element of the codomain is **never** hit. Range ⊊ Codomain.
+- Example: `f : ℝ → ℝ, f(x) = x²` (negative numbers are never reached).
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    style b3 stroke:#f00,stroke-width:3px,stroke-dasharray: 5 5
+```
+Here `c` (red) is in the codomain but never reached → **into**, not onto.
+
+---
+
+# Bijective = One-to-One AND Onto
+
+Every input maps to a unique output **and** every codomain element is hit. Only bijective functions have a proper inverse function.
+
+```mermaid
+flowchart LR
+    subgraph D["Domain A"]
+        a1((1))
+        a2((2))
+        a3((3))
+    end
+    subgraph C["Codomain B"]
+        b1((a))
+        b2((b))
+        b3((c))
+    end
+    a1 --> b1
+    a2 --> b2
+    a3 --> b3
+```
+✔ One-to-one (no shared output) **and** onto (nothing left in B).
+
+---
+
+# Master Comparison Table
+
+| Case | Description | Example | Function? | One-to-One? |
+|---|---|---|---|---|
+| One-to-One | each input → unique output | `f(x)=2x+1` | ✅ Yes | ✅ Yes |
+| Many-to-One | many inputs → same output | `f(x)=x²` | ✅ Yes | ❌ No |
+| One-to-Many | one input → many outputs | `x=y²` | ❌ No | — |
+| Input with no output | some input unused | partial mapping | ❌ No | — |
+| Onto | all codomain hit | `f(x)=x³` on ℝ | ✅ Yes | depends |
+| Bijective | 1-1 + onto | `f(x)=x³` | ✅ Yes | ✅ Yes |
+
+---
+
+
 
 ---
 
@@ -312,19 +512,48 @@ Therefore, different inputs produce different outputs, and $f$ is one-to-one.
 
 ## 2.7 Increasing and decreasing functions
 
+
+
+A **monotonic function** is a mathematical function that preserves a given order, meaning it is entirely non-decreasing or entirely non-increasing across its domain. It never changes direction, so it either constantly climbs, stays flat, or constantly drops.
+
 A function is **strictly increasing** if
 
 $$
-x_1<x_2\implies f(x_1)<f(x_2).
+x_1 < x_2 \implies f(x_1) < f(x_2)
 $$
 
 A function is **strictly decreasing** if
 
 $$
-x_1<x_2\implies f(x_1)>f(x_2).
+x_1 < x_2 \implies f(x_1) > f(x_2)
 $$
 
 Every strictly increasing or strictly decreasing function is one-to-one.
+
+```mermaid
+graph TD
+    A[Monotonic Functions] --> B[Increasing]
+    A --> C[Decreasing]
+
+    B --> D[Strictly Increasing]
+    B --> E[Non-decreasing]
+
+    C --> F[Strictly Decreasing]
+    C --> G[Non-increasing]
+
+    D --> H["x₁ < x₂ ⇒ f(x₁) < f(x₂)"]
+    E --> I["x₁ < x₂ ⇒ f(x₁) ≤ f(x₂)"]
+    F --> J["x₁ < x₂ ⇒ f(x₁) > f(x₂)"]
+    G --> K["x₁ < x₂ ⇒ f(x₁) ≥ f(x₂)"]
+
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style C fill:#ffa94d,stroke:#e8590c,color:#000
+    style D fill:#4dabf7,stroke:#1864ab,color:#fff
+    style E fill:#fcc419,stroke:#e67700,color:#000
+    style F fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style G fill:#fcc419,stroke:#e67700,color:#000
+```
 
 ### Proof for a strictly increasing function
 
@@ -341,6 +570,65 @@ x_1=x_2.
 $$
 
 Therefore, $f$ is one-to-one.
+
+```mermaid
+graph TD
+    A[Calculate f' x] --> B{f' x > 0?}
+    B -->|Yes| C[Strictly Increasing<br/>✅ One-to-One]
+    B -->|No| D{f' x < 0?}
+    D -->|Yes| E[Strictly Decreasing<br/>✅ One-to-One]
+    D -->|No| F{f' x = 0?}
+    F -->|Always| G[Constant Function<br/>❌ Not One-to-One]
+    F -->|Sometimes| H[Not Monotonic<br/>Check Other Methods]
+    
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#fcc419,stroke:#e67700,color:#000
+    style D fill:#fcc419,stroke:#e67700,color:#000
+    style F fill:#fcc419,stroke:#e67700,color:#000
+    style C fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style E fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style G fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style H fill:#ffa94d,stroke:#e8590c,color:#000
+```
+
+### The Derivative Test Rule
+
+```mermaid
+graph TD
+    A[Given Function f x] --> B[Calculate f' x]
+    B --> C{Sign of f' x?}
+    C -->|f' x > 0| D[Increasing]
+    C -->|f' x < 0| E[Decreasing]
+    C -->|f' x = 0| F[Critical Point]
+    
+    D --> G[For all x in interval]
+    E --> G
+    
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#fcc419,stroke:#e67700,color:#000
+    style C fill:#fcc419,stroke:#e67700,color:#000
+    style D fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style E fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style F fill:#ffa94d,stroke:#e8590c,color:#000
+    style G fill:#4dabf7,stroke:#1864ab,color:#fff
+```
+
+```math
+f(x) = x²
+f'(x) = 2x
+
+Critical Points:
+2x = 0 → x = 0
+
+Sign Analysis:
+x < 0: f'(x) < 0 → Decreasing
+x > 0: f'(x) > 0 → Increasing
+
+Conclusion:
+f is decreasing on (-∞, 0)
+f is increasing on (0, ∞)
+```
+
 ---
 | Function | Graph | One-to-One? | Reason |
 |----------|-------|-------------|--------|
@@ -496,7 +784,7 @@ $$
 a>0\quad\text{and}\quad a\ne1.
 $$
 
-The constant $a$ is the **base**, and the variable $x$ is the **exponent**.
+The **constant** $a$ is the **base**, and the **variable** $x$ is the **exponent**.
 
 ### Why must $a>0$?
 
@@ -526,7 +814,7 @@ $$
 0^{-1}=\frac10,
 $$
 
-which is undefined. Also, $0^0$ is not assigned the ordinary exponent-law value in this setting.
+which is undefined. Also, $0^0$ is not assigned the ordinary exponent-law value in this setting. Also, **$0^0$ is undefined**.
 
 ---
 
@@ -554,7 +842,7 @@ Since both classes are strictly monotonic, every exponential function is one-to-
 
 ---
 
-# 4. Graphing exponential functions
+# 4. [Graphing exponential functions](https://youtu.be/J83L0d_BIEI?si=t5i8X3j-faL9irrR)
 
 ## 4.1 Universal properties of $f(x)=a^x$
 
