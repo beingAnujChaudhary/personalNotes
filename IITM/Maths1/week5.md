@@ -1218,8 +1218,9 @@ $$
 
 ### Area under $e^x$
 The area under $y = e^x$ from $-\infty$ to $1$ equals $e$:
+
 $$
-\int_{-\infty}^{1} e^x\,dx=e
+\int_{-\infty}^{1} e^x\,dx = e
 $$
 
 ### Logarithm Connection
@@ -1257,7 +1258,7 @@ $$
 Therefore,
 
 $$
-\boxed{R(10)\approx36.47\%}
+\boxed{R(10) \approx 36.47\%}
 $$
 
 ### B. What is the highest percentage expected? 
