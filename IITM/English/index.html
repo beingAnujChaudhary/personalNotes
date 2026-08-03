@@ -1,0 +1,338 @@
+This is a complete HTML document that creates an animated, galaxy-themed GIF-style visual featuring the name "ANuj Chaudhary". It uses HTML, CSS, and JavaScript to render a dynamic starfield and glowing text.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANuj Chaudhary · Galaxy GIF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0b0710;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        .card {
+            background: radial-gradient(circle at 30% 40%, #1a1028, #0a0612);
+            border-radius: 2.5rem;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 25px 50px -8px rgba(0,0,0,0.9), 0 0 0 1px rgba(255, 215, 150, 0.08);
+            transition: box-shadow 0.3s;
+            width: fit-content;
+            max-width: 96vw;
+        }
+        .gif-container {
+            position: relative;
+            width: 640px;
+            max-width: 100%;
+            aspect-ratio: 640 / 360;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #06040a;
+            box-shadow: inset 0 0 60px rgba(90, 40, 180, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            image-rendering: auto;
+        }
+        .label {
+            text-align: center;
+            margin-top: 1.4rem;
+            color: #b7a0d9;
+            font-weight: 400;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 200, 255, 0.06);
+        }
+        .label span {
+            color: #d9c6ff;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        @media (max-width: 700px) {
+            .card { padding: 1rem; border-radius: 1.8rem; }
+            .gif-container { border-radius: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="gif-container">
+            <canvas id="galaxyCanvas" width="640" height="360"></canvas>
+        </div>
+        <div class="label">✦ &nbsp;<span>ANuj Chaudhary</span> &nbsp;✦</div>
+    </div>
+
+    <script>
+        (function() {
+            const canvas = document.getElementById('galaxyCanvas');
+            const ctx = canvas.getContext('2d');
+
+            const W = 640, H = 360;
+            canvas.width = W; canvas.height = H;
+
+            // ---------- star field ----------
+            const STAR_COUNT = 420;
+            let stars = [];
+
+            // ---------- core galaxy parameters ----------
+            const centerX = W * 0.52;
+            const centerY = H * 0.48;
+            const angleOffset = { value: 0 };
+
+            // ---------- text config ----------
+            const textLine1 = 'ANuj';
+            const textLine2 = 'Chaudhary';
+
+            // ---------- helper: random range ----------
+            const rand = (min, max) => Math.random() * (max - min) + min;
+
+            // ---------- init stars ----------
+            function initStars() {
+                stars = [];
+                for (let i = 0; i < STAR_COUNT; i++) {
+                    const arm = Math.floor(Math.random() * 3);        // 0,1,2
+                    const radius = rand(18, 220);
+                    const angle = rand(0, Math.PI * 2) + (arm * 2.094); // 120° offset
+                    const size = rand(0.7, 2.6);
+                    const brightness = rand(0.3, 1);
+                    const twinkleSpeed = rand(0.008, 0.035);
+                    const drift = rand(-0.03, 0.03);
+
+                    stars.push({
+                        radius,
+                        angle,
+                        size,
+                        brightness,
+                        baseBright: brightness,
+                        twinkleSpeed,
+                        drift,
+                        arm,
+                        // for color variation
+                        colorShift: rand(0.3, 0.9),
+                    });
+                }
+            }
+            initStars();
+
+            // ---------- background nebula layers (drawn each frame) ----------
+            function drawNebula() {
+                // outer glow
+                const grad = ctx.createRadialGradient(
+                    centerX - 20, centerY - 10, 20,
+                    centerX - 10, centerY, 240
+                );
+                grad.addColorStop(0, 'rgba(90, 40, 180, 0.15)');
+                grad.addColorStop(0.5, 'rgba(140, 70, 255, 0.07)');
+                grad.addColorStop(1, 'rgba(10, 5, 20, 0)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
+
+                // warm inner glow
+                const grad2 = ctx.createRadialGradient(
+                    centerX + 40, centerY - 30, 10,
+                    centerX + 20, centerY - 20, 160
+                );
+                grad2.addColorStop(0, 'rgba(210, 150, 255, 0.08)');
+                grad2.addColorStop(0.7, 'rgba(180, 100, 255, 0.04)');
+                grad2.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = grad2;
+                ctx.fillRect(0, 0, W, H);
+
+                // subtle dust lanes
+                for (let i = 0; i < 18; i++) {
+                    const x = centerX + (i - 9) * 22 + Math.sin(i * 0.9 + angleOffset.value * 0.2) * 30;
+                    const y = centerY + Math.cos(i * 1.1 + angleOffset.value * 0.15) * 26;
+                    const r = 40 + Math.sin(i * 0.7 + 1.2) * 18;
+                    const grad3 = ctx.createRadialGradient(x, y, 2, x, y, r);
+                    grad3.addColorStop(0, `rgba(160, 120, 255, ${0.02 + Math.sin(i + angleOffset.value * 0.3) * 0.01 + 0.01})`);
+                    grad3.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = grad3;
+                    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+                }
+            }
+
+            // ---------- draw galaxy stars (spiral + random) ----------
+            function drawStars(time) {
+                const rot = angleOffset.value;
+
+                stars.forEach(s => {
+                    // spiral arm distortion
+                    const armAngle = s.arm * 2.094;
+                    const spiralOffset = s.radius * 0.12;
+                    const angle = s.angle + rot * 0.4 + armAngle + Math.sin(s.radius * 0.03 + rot * 0.2) * 0.5;
+
+                    const x = centerX + Math.cos(angle) * s.radius + Math.sin(s.radius * 0.02 + rot * 0.1) * 4;
+                    const y = centerY + Math.sin(angle) * s.radius * 0.8 + Math.cos(s.radius * 0.025 + rot * 0.15) * 3;
+
+                    // twinkle
+                    const twinkle = 0.65 + 0.35 * Math.sin(time * s.twinkleSpeed + s.radius * 0.5);
+                    const alpha = s.baseBright * twinkle * 0.95;
+
+                    // color: blue-purple-white
+                    const r = 160 + 70 * s.colorShift + 30 * Math.sin(s.radius * 0.02);
+                    const g = 120 + 80 * s.colorShift + 20 * Math.cos(s.radius * 0.025 + 1);
+                    const b = 220 + 35 * (1 - s.colorShift) + 20 * Math.sin(s.radius * 0.03 + 2);
+                    ctx.beginPath();
+                    ctx.arc(x, y, s.size * (0.7 + 0.3 * twinkle), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${r|0}, ${g|0}, ${b|0}, ${alpha * 0.85})`;
+                    ctx.fill();
+
+                    // tiny glow for brighter stars
+                    if (s.size > 1.6 && alpha > 0.6) {
+                        ctx.shadowColor = `rgba(200, 180, 255, ${alpha * 0.2})`;
+                        ctx.shadowBlur = 8;
+                        ctx.beginPath();
+                        ctx.arc(x, y, s.size * 1.1, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(220, 200, 255, ${alpha * 0.1})`;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                });
+            }
+
+            // ---------- draw glowing text "ANuj Chaudhary" ----------
+            function drawText(time) {
+                const pulse = 0.94 + 0.06 * Math.sin(time * 0.012 + 0.5);
+                const glowPulse = 0.6 + 0.4 * Math.sin(time * 0.008 + 1.2);
+
+                ctx.save();
+                ctx.shadowColor = `rgba(180, 130, 255, ${0.35 * glowPulse})`;
+                ctx.shadowBlur = 40 + 18 * Math.sin(time * 0.01 + 0.7);
+
+                // ---- first line: ANuj ----
+                ctx.font = 'bold 52px "Segoe UI", "Poppins", system-ui, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                const grad1 = ctx.createLinearGradient(centerX - 140, centerY - 42, centerX + 140, centerY + 10);
+                grad1.addColorStop(0, '#c7b0ff');
+                grad1.addColorStop(0.4, '#f0e4ff');
+                grad1.addColorStop(0.7, '#d9c4ff');
+                grad1.addColorStop(1, '#b096f0');
+                ctx.fillStyle = grad1;
+
+                // subtle letter spacing
+                ctx.letterSpacing = '6px';
+                ctx.fillText(textLine1, centerX + 2, centerY - 32);
+
+                // ---- second line: Chaudhary ----
+                ctx.font = 'bold 38px "Segoe UI", "Poppins", system-ui, sans-serif';
+                const grad2 = ctx.createLinearGradient(centerX - 180, centerY + 16, centerX + 180, centerY + 60);
+                grad2.addColorStop(0, '#b8a0f0');
+                grad2.addColorStop(0.5, '#eeddff');
+                grad2.addColorStop(1, '#b59beb');
+                ctx.fillStyle = grad2;
+                ctx.shadowBlur = 40 + 12 * Math.sin(time * 0.009 + 1.8);
+                ctx.fillText(textLine2, centerX + 2, centerY + 40);
+
+                // extra sparkle overlay
+                ctx.shadowBlur = 0;
+                ctx.font = 'bold 52px "Segoe UI", "Poppins", system-ui, sans-serif';
+                ctx.fillStyle = `rgba(255, 250, 255, ${0.06 * (1 + Math.sin(time * 0.02))})`;
+                ctx.fillText(textLine1, centerX + 2, centerY - 32);
+                ctx.font = 'bold 38px "Segoe UI", "Poppins", system-ui, sans-serif';
+                ctx.fillStyle = `rgba(255, 250, 255, ${0.05 * (1 + Math.sin(time * 0.018 + 1))})`;
+                ctx.fillText(textLine2, centerX + 2, centerY + 40);
+
+                ctx.restore();
+
+                // small orbiting sparkles around text
+                for (let i = 0; i < 14; i++) {
+                    const a = time * 0.015 + i * 0.9;
+                    const radius = 82 + 14 * Math.sin(time * 0.01 + i * 0.7);
+                    const x = centerX + Math.cos(a) * radius;
+                    const y = centerY - 10 + Math.sin(a * 0.9 + 0.5) * radius * 0.5;
+                    const size = 1.6 + 1.4 * Math.sin(time * 0.025 + i * 1.2);
+                    const alpha = 0.3 + 0.3 * Math.sin(time * 0.02 + i * 0.9);
+                    ctx.beginPath();
+                    ctx.arc(x, y, size * 0.6, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(230, 210, 255, ${alpha * 0.5})`;
+                    ctx.fill();
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = `rgba(190, 160, 255, ${alpha * 0.2})`;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size * 0.3, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 240, 255, ${alpha * 0.7})`;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            // ---------- animation loop ----------
+            function animate(timestamp) {
+                const time = timestamp || 0;
+                // smooth rotation
+                angleOffset.value += 0.0012;
+
+                ctx.clearRect(0, 0, W, H);
+
+                // 1. deep background
+                const bgGrad = ctx.createRadialGradient(centerX-30, centerY-20, 10, centerX, centerY, 300);
+                bgGrad.addColorStop(0, '#1b1228');
+                bgGrad.addColorStop(0.7, '#0a0712');
+                bgGrad.addColorStop(1, '#050308');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, W, H);
+
+                // 2. nebula glow
+                drawNebula();
+
+                // 3. stars
+                drawStars(time);
+
+                // 4. text with glow
+                drawText(time);
+
+                // 5. very subtle vignette
+                const vig = ctx.createRadialGradient(W/2, H/2, 120, W/2, H/2, 360);
+                vig.addColorStop(0, 'rgba(0,0,0,0)');
+                vig.addColorStop(0.7, 'rgba(0,0,0,0)');
+                vig.addColorStop(1, 'rgba(0,0,0,0.25)');
+                ctx.fillStyle = vig;
+                ctx.fillRect(0, 0, W, H);
+
+                requestAnimationFrame(animate);
+            }
+
+            // start the loop
+            requestAnimationFrame(animate);
+
+            // resize handler: keep canvas crisp (no stretching)
+            function handleResize() {
+                const container = canvas.parentElement;
+                const rect = container.getBoundingClientRect();
+                // canvas CSS keeps aspect ratio, no need to resize drawing buffer
+            }
+            window.addEventListener('resize', handleResize);
+
+            // optional: re-init stars on double click (just for fun)
+            canvas.addEventListener('dblclick', () => {
+                initStars();
+            });
+        })();
+    </script>
+</body>
+</html>
+```
