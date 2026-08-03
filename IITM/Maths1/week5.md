@@ -512,6 +512,8 @@ Therefore, different inputs produce different outputs, and $f$ is one-to-one.
 
 ## 2.7 Increasing and decreasing functions
 
+
+
 A **monotonic function** is a mathematical function that preserves a given order, meaning it is entirely non-decreasing or entirely non-increasing across its domain. It never changes direction, so it either constantly climbs, stays flat, or constantly drops.
 
 A function is **strictly increasing** if
@@ -532,18 +534,18 @@ Every strictly increasing or strictly decreasing function is one-to-one.
 graph TD
     A[Monotonic Functions] --> B[Increasing]
     A --> C[Decreasing]
-    
+
     B --> D[Strictly Increasing]
     B --> E[Non-decreasing]
-    
+
     C --> F[Strictly Decreasing]
     C --> G[Non-increasing]
-    
-    D --> H[x₁ < x₂ ⇒ f(x₁) < f(x₂)]
-    E --> I[x₁ < x₂ ⇒ f(x₁) ≤ f(x₂)]
-    F --> J[x₁ < x₂ ⇒ f(x₁) > f(x₂)]
-    G --> K[x₁ < x₂ ⇒ f(x₁) ≥ f(x₂)]
-    
+
+    D --> H["x₁ < x₂ ⇒ f(x₁) < f(x₂)"]
+    E --> I["x₁ < x₂ ⇒ f(x₁) ≤ f(x₂)"]
+    F --> J["x₁ < x₂ ⇒ f(x₁) > f(x₂)"]
+    G --> K["x₁ < x₂ ⇒ f(x₁) ≥ f(x₂)"]
+
     style A fill:#845ef7,stroke:#5f3dc4,color:#fff
     style B fill:#51cf66,stroke:#2b8a3e,color:#fff
     style C fill:#ffa94d,stroke:#e8590c,color:#000
@@ -587,6 +589,44 @@ graph TD
     style E fill:#51cf66,stroke:#2b8a3e,color:#fff
     style G fill:#ff6b6b,stroke:#c92a2a,color:#fff
     style H fill:#ffa94d,stroke:#e8590c,color:#000
+```
+
+### The Derivative Test Rule
+
+```mermaid
+graph TD
+    A[Given Function f x] --> B[Calculate f' x]
+    B --> C{Sign of f' x?}
+    C -->|f' x > 0| D[Increasing]
+    C -->|f' x < 0| E[Decreasing]
+    C -->|f' x = 0| F[Critical Point]
+    
+    D --> G[For all x in interval]
+    E --> G
+    
+    style A fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style B fill:#fcc419,stroke:#e67700,color:#000
+    style C fill:#fcc419,stroke:#e67700,color:#000
+    style D fill:#51cf66,stroke:#2b8a3e,color:#fff
+    style E fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style F fill:#ffa94d,stroke:#e8590c,color:#000
+    style G fill:#4dabf7,stroke:#1864ab,color:#fff
+```
+
+```math
+f(x) = x²
+f'(x) = 2x
+
+Critical Points:
+2x = 0 → x = 0
+
+Sign Analysis:
+x < 0: f'(x) < 0 → Decreasing
+x > 0: f'(x) > 0 → Increasing
+
+Conclusion:
+f is decreasing on (-∞, 0)
+f is increasing on (0, ∞)
 ```
 
 ---
